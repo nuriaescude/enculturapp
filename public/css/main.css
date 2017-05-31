@@ -1,10 +1,13 @@
 body {
     font-family: 'Nunito', sans-serif;
 }
-
-
 /* NAVBAR */
-
+.navbar {
+    box-shadow: 0 1px 4px rgba(41,51,57,.5);
+}
+.navbar-default {
+    border: none;
+}
 .content {
     padding-top: 70px;
 }
@@ -48,12 +51,13 @@ body {
     padding: 0px;
 }
 .cover-tutorial {
-	background-color: #007FFF;
+	background-color: #009593;
     background-size: cover;
     padding: 18px;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    color: white;
 }
 .carousel-inner {
 	position: relative;
@@ -68,15 +72,23 @@ body {
 .btn-continue {
 	position: relative;
 	text-align: center;
+
 }
 .btn-continue .btn {
 	background: #333;
 	color: white;
 	text-decoration: none;
+    width: 50%;
+    border-radius: 2px;
 }
 .hero {
 	height: 300px;
 	min-height: 400px;
+}
+
+.btn-submit {
+    margin: 5px 0;
+    height: 60px;
 }
 
 .cover {
@@ -95,6 +107,12 @@ body {
     font-size: 24px;
     font-weight: 400;
     text-transform: uppercase;
+}
+.cover h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 300;
 }
 
 .cover p {}
@@ -116,7 +134,8 @@ body {
 }
 
 .form-signin,
-.form-register {
+.form-register,
+.landing-btn {
     max-width: 380px;
     /*  padding: 15px;*/
     margin: 0 auto;
@@ -195,9 +214,18 @@ body {
 }
 
 .btn-login {
-    background: #007FFF;
+    background: #2b88d9;
+    border: 0;
     border-radius: 2px;
+    transition: all 0.3s ease 0s;
 }
+.btn-register {
+    margin-top: 5px;
+}
+.landing-btn a:hover, .form-signin a:hover, .form-register a:hover{
+    text-decoration: none;
+}
+.landing-btn
 
 .text-terms {
     padding-top: 10px;
@@ -205,7 +233,6 @@ body {
 
 .reset-password {
     padding-top: 10px;
-    text-decoration: underline;
 }
 
 .new-account {
@@ -217,16 +244,16 @@ body {
     text-align: center;
 }
 
-.reset-password,
+.reset-password a,
 .new-account a,
 .text-terms a {
-    text-decoration: underline;
-    font-weight: 700;
+    text-decoration: none;
+/*    font-weight: 700;*/
 }
 
 .main-navbar {
     position: fixed;
-    background: #007FFF;
+    background: #009593;
     color: white;
 }
 
@@ -252,6 +279,11 @@ body {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    margin: 0;
+    padding: 0 10px;
+}
+.expos-cards {
+    width: 100%;
     margin: 0;
     padding: 0 10px;
 }
@@ -309,11 +341,12 @@ body {
     height: 190px;
     width: 180px;
     box-sizing: border-box;
-    flex-basis: 47%;
+    flex-basis: 46%;
     max-height: 190px;
     max-width: 180px;
     min-width: 90px;
     min-height: 50px;
+    
 }
 
 .item-mood p {
@@ -339,6 +372,7 @@ body {
 }
 .expo-val  {
 	padding-top: 5px;
+    font-size: 12px;
 }
 
 .fa {
