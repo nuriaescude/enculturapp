@@ -4,6 +4,9 @@ angular.module('mainApp')
       .when('/tutorial', {
         templateUrl: '/templates/tutorial.html'
       })
+      .when('/landing', {
+        templateUrl: '/templates/landing.html'
+      })
       .when('/login', {
         templateUrl: '/templates/login.html'
       })
@@ -19,4 +22,5 @@ angular.module('mainApp')
       .when('/detailExpo', {
         templateUrl: '/templates/detailExpo.html'
       })
+      .otherwise({ redirectTo: '/tutorial' });
   })
