@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="cover">
+        <div class="col-md-12 text-center">
+            <h1>Welcome</h1>
+            <p>Create an account to discover the cultural offer nearest to you.</p>
+            <form class="form-register" accept-charset="UTF-8" role="form" ng-submit="vm.login()">
+                <input class="form-control" placeholder="Name" name="username" type="text" ng-model="vm.name" required autofocus>
+                <input class="form-control" placeholder="Surname" name="surname" type="text" ng-model="vm.surname" required>
+                <input class="form-control" placeholder="Email" name="username" type="text" ng-model="vm.username" required>
+                <input class="form-control" placeholder="Password" name="password" type="password" ng-model="vm.password" required>
+                <a href="/#!/setMood"><button type="submit" class="btn btn-lg btn-primary btn-block btn-login">Register now</button></a>
+            </form>
+            <div class="text-terms text-center">
+                <p>By clicking register you agree to the <a>Terms and Conditions</a>.</p>
+            </div>
+        </div>
+        <div class="new-account">
+            <!--$location
+                $location.path('')     -->
+            <p>Already have an account? <a href="/#!/login">Sign in</a></p>
+        </div>
+    </div>
+</div>
