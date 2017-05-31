@@ -1,13 +1,18 @@
 body {
     font-family: 'Nunito', sans-serif;
 }
+
+
 /* NAVBAR */
+
 .navbar {
-    box-shadow: 0 1px 4px rgba(41,51,57,.5);
+    box-shadow: 0 1px 4px rgba(41, 51, 57, .5);
 }
+
 .navbar-default {
     border: none;
 }
+
 .content {
     padding-top: 70px;
 }
@@ -41,7 +46,6 @@ body {
     color: white;
 }
 
-
 .navbar-blue .navbar-link {
     color: white
 }
@@ -50,8 +54,9 @@ body {
     margin: 0px;
     padding: 0px;
 }
+
 .cover-tutorial {
-	background-color: #009593;
+    background-color: #009593;
     background-size: cover;
     padding: 18px;
     height: 100vh;
@@ -59,31 +64,35 @@ body {
     flex-direction: column;
     color: white;
 }
+
 .carousel-inner {
-	position: relative;
-	text-align: center;
+    position: relative;
+    text-align: center;
 }
+
 .carousel-indicators {
-	position: absolute;
+    position: absolute;
     display: block;
     bottom: 10px;
     text-align: center;
 }
-.btn-continue {
-	position: relative;
-	text-align: center;
 
+.btn-continue {
+    position: relative;
+    text-align: center;
 }
+
 .btn-continue .btn {
-	background: #333;
-	color: white;
-	text-decoration: none;
+    background: #333;
+    color: white;
+    text-decoration: none;
     width: 50%;
     border-radius: 2px;
 }
+
 .hero {
-	height: 300px;
-	min-height: 400px;
+    height: 300px;
+    min-height: 400px;
 }
 
 .btn-submit {
@@ -108,6 +117,7 @@ body {
     font-weight: 400;
     text-transform: uppercase;
 }
+
 .cover h2 {
     margin-bottom: 20px;
     text-align: center;
@@ -115,12 +125,9 @@ body {
     font-weight: 300;
 }
 
-.cover p {}
-
 .single-page {
     background-color: #F6F4EC;
     background-size: cover;
-    height: 100vh;
 }
 
 .single-page h1 {
@@ -161,30 +168,49 @@ body {
     box-sizing: border-box;
 }
 
+
 /* enable absolute positioning */
-.inner-addon { 
-    position: relative; 
+
+.inner-addon {
+    position: relative;
 }
+
 
 /* style icon */
+
 .inner-addon .glyphicon {
-  position: absolute;
-  padding: 15px;
-  color: #414141;
-  pointer-events: none;
+    position: absolute;
+    padding: 15px;
+    color: #414141;
+    pointer-events: none;
 }
 
+
 /* align icon */
-.left-addon .glyphicon  { left:  0px;}
-.right-addon .glyphicon { right: 0px;}
+
+.left-addon .glyphicon {
+    left: 0px;
+}
+
+.right-addon .glyphicon {
+    right: 0px;
+}
+
 
 /* add padding  */
-.left-addon input  { padding-left:  30px; }
-.right-addon input { padding-right: 30px; }
+
+.left-addon input {
+    padding-left: 30px;
+}
+
+.right-addon input {
+    padding-right: 30px;
+}
 
 .form-signin .form-control:focus {
     z-index: 2;
 }
+
 .input-group-addon {
     padding: 6px 12px;
     font-size: 15px;
@@ -196,7 +222,8 @@ body {
     border-bottom: 0;
 }
 
-.input-group-addon, .form-signin input[type="text"] {
+.input-group-addon,
+.form-signin input[type="text"] {
     margin-bottom: -1px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -204,7 +231,8 @@ body {
     border-top-right-radius: 2px;
 }
 
-.input-group-addon, .form-signin input[type="password"] {
+.input-group-addon,
+.form-signin input[type="password"] {
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -250,15 +278,18 @@ body {
     border-radius: 2px;
     transition: all 0.3s ease 0s;
 }
+
 .btn-register {
     margin-top: 5px;
 }
-.landing-btn a:hover, .form-signin a:hover, .form-register a:hover{
+
+.landing-btn a:hover,
+.form-signin a:hover,
+.form-register a:hover {
     text-decoration: none;
 }
-.landing-btn
 
-.text-terms {
+.landing-btn .text-terms {
     padding-top: 10px;
 }
 
@@ -279,7 +310,7 @@ body {
 .new-account a,
 .text-terms a {
     text-decoration: none;
-/*    font-weight: 700;*/
+    /*    font-weight: 700;*/
 }
 
 .main-navbar {
@@ -306,13 +337,15 @@ body {
     }
 }
 
-.cards, .expos-cards {
+.cards,
+.expos-cards {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     margin: 0;
     padding: 0 10px;
 }
+
 .expos-cards {
     width: 100%;
     margin: 0;
@@ -334,38 +367,42 @@ body {
 }
 
 .item-mood-box a {
-	text-decoration: none;
-	color: white;
-	width: 100%;
-	height: 100%;
-	display:block;
-	display:flex;
-  	justify-content: center;
-  	align-items: center;
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .item-expo-box a {
-	width: 100%;
-	height: 100%;
-	display:block;
-	text-decoration: none;
-	color: #333;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-decoration: none;
+    color: #333;
 }
 
 .item-mood-box a:hover {
-	background: black;
-	color: white;
+    background: black;
+    color: white;
 }
 
 .box-relaxat a {
-	background: #79CEB8;
+    background: #79CEB8;
+    transition: all 0.3s ease 0s;
 }
 
 .box-classic a {
-	background: #C68143;
+    background: #C68143;
+    transition: all 0.3s ease 0s;
 }
 
 .box-cinefil a {
-	background: #C1D82F;
+    background: #C1D82F;
+    transition: all 0.3s ease 0s;
 }
 
 .item-expo-box {
@@ -378,45 +415,50 @@ body {
     max-width: 180px;
     min-width: 90px;
     min-height: 50px;
-    
 }
 
 .item-mood p {
-	font-size: 14px;
-	font-weight: 700;
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	margin: 0 auto;
-	overflow: auto;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+    overflow: auto;
 }
 
 .thumbnail {
-	padding: 0;
+    padding: 0;
 }
+
 .caption p {
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.caption p .center-name {
+    font-size: 12px;
 }
 
 .expo-name {
-	font-weight: bolder;
+    font-weight: bolder;
 }
-.expo-val  {
-	padding-top: 5px;
+
+.expo-val {
+    padding-top: 5px;
     font-size: 12px;
 }
 
 .fa {
-	padding-right: 2px;
+    padding-right: 2px;
 }
 
 .detail-expo-menu {
-	display: flex;
-	flex-direction: row;
-	list-style: none;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
 }
 
 .detail-expo-menu ul li {
-	padding: 0;
+    padding: 0;
 }
