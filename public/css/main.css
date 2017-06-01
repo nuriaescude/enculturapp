@@ -46,6 +46,9 @@ body {
     color: white;
 }
 
+.navbar-default .navbar-brand:hover {
+    color: white;
+}
 .navbar-blue .navbar-link {
     color: white
 }
@@ -63,6 +66,12 @@ body {
     display: flex;
     flex-direction: column;
     color: white;
+}
+.cover-tutorial h3 {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-size: 20px;
+    font-weight: lighter;
 }
 
 .carousel-inner {
@@ -83,13 +92,17 @@ body {
 }
 
 .btn-continue .btn {
-    background: #333;
+    background: #fdcf54;
+    font-weight: 600;
     color: white;
     text-decoration: none;
     width: 50%;
     border-radius: 2px;
+    transition: all 0.3s ease 0s;
 }
-
+.btn-continue .btn:hover {
+    background: rgba(253, 207, 84);
+}
 .hero {
     height: 300px;
     min-height: 400px;
@@ -104,7 +117,7 @@ body {
     display: flex;
     flex-direction: column;
     /*justify-content: center;*/
-    height: 100vh;
+    min-height: 100vh;
     background-color: #F6F4EC;
     background-size: cover;
     padding: 18px;
@@ -128,6 +141,7 @@ body {
 .single-page {
     background-color: #F6F4EC;
     background-size: cover;
+    min-height: 100vh;
 }
 
 .single-page h1 {
@@ -146,6 +160,7 @@ body {
     max-width: 380px;
     /*  padding: 15px;*/
     margin: 0 auto;
+    font-weight: lighter;
 }
 
 .form-signin .form-signin-heading,
@@ -273,9 +288,10 @@ body {
 }
 
 .btn-login {
-    background: #2b88d9;
+    background: #fdcf54;
     border: 0;
     border-radius: 2px;
+    font-weight: 600;
     transition: all 0.3s ease 0s;
 }
 
@@ -294,7 +310,7 @@ body {
 }
 
 .reset-password {
-    padding-top: 10px;
+    padding-top: 15px;
 }
 
 .new-account {
@@ -310,7 +326,8 @@ body {
 .new-account a,
 .text-terms a {
     text-decoration: none;
-    /*    font-weight: 700;*/
+    font-size: 15px;
+    font-weight: 300;
 }
 
 .main-navbar {
@@ -355,7 +372,7 @@ body {
 .item-mood-box {
     margin: 5px 10px 5px 0px;
     color: white;
-    font-weight: bolder;
+    font-weight: bold;
     background: #333;
     height: 120px;
     box-sizing: border-box;
@@ -390,18 +407,86 @@ body {
     color: white;
 }
 
-.box-relaxat a {
+.box-discover a {
     background: #79CEB8;
     transition: all 0.3s ease 0s;
 }
 
 .box-classic a {
-    background: #C68143;
+    background: #333;
+    transition: all 0.3s ease 0s;
+}
+.box-explorer a {
+    background: #237F52;
+    transition: all 0.3s ease 0s;
+}
+.box-exotic {
+    background: #99CC00;
     transition: all 0.3s ease 0s;
 }
 
-.box-cinefil a {
+.box-cinephile a {
+    background: #C68143;
+    transition: all 0.3s ease 0s;
+}
+.box-relaxed a {
+    background: #79CEB8;
+    transition: all 0.3s ease 0s;
+}
+.box-out a {
+    background: #0033A1;
+    transition: all 0.3s ease 0s;
+}
+.box-relaxed a {
+    background: #79CEB8;
+    transition: all 0.3s ease 0s;
+}
+
+.box-disconnected a {
+    background: #333;
+    transition: all 0.3s ease 0s;
+}
+
+.box-entertained a {
     background: #C1D82F;
+    transition: all 0.3s ease 0s;
+}
+.box-nostalgic a {
+    background: #B89737;
+    transition: all 0.3s ease 0s;
+}
+
+.box-family a {
+    background: #A71930;
+    transition: all 0.3s ease 0s;
+}
+.box-informed a {
+    background: #0064D2;
+    transition: all 0.3s ease 0s;
+}
+
+.box-romantic a {
+    background: #EC1944;
+    transition: all 0.3s ease 0s;
+}
+.box-energy a {
+    background: #F05D21;
+    transition: all 0.3s ease 0s;
+}
+.box-inspired a {
+    background: #00B6E3;
+    transition: all 0.3s ease 0s;
+}
+.box-holiday a {
+    background: #C1D82F;
+    transition: all 0.3s ease 0s;
+}
+.box-vintage a {
+    background: #A71930;
+    transition: all 0.3s ease 0s;
+}
+.box-love a {
+    background: #F94877;
     transition: all 0.3s ease 0s;
 }
 
@@ -447,6 +532,7 @@ body {
 .expo-val {
     padding-top: 5px;
     font-size: 12px;
+    font-weight: lighter;
 }
 
 .fa {
