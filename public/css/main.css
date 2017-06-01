@@ -141,9 +141,9 @@ body {
 .cover h1 {
     margin-bottom: 20px;
     text-align: center;
-    font-size: 24px;
-    font-weight: 400;
-    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 300;
+    
 }
 
 .cover h2 {
@@ -152,11 +152,17 @@ body {
     font-size: 32px;
     font-weight: 300;
 }
+.cover p{
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
 
 .single-page {
     background-color: #F6F4EC;
     background-size: cover;
-    height: 100vh;
+    height: 113vh;
 }
 
 .single-page h1 {
@@ -165,7 +171,7 @@ body {
     padding-left: 10px;
 }
 .single-page h2 {
-    margin-top: 50px;
+
     padding: 10px 10px 0px;
     font-size: 16px;
 }
@@ -546,7 +552,8 @@ body {
 
 .thumbnail {
     padding: 0;
-    min-height: 190px;
+    min-height: 212px;
+    height: 190px;
 }
 
 .caption p {
@@ -622,6 +629,17 @@ li>.active {
 }
 .no-margin-bottom {
     margin-bottom: 0;
+}
+.list-group-item:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+.list-group-item>i{
+    padding: 0 10px 0 5px;
 }
 
 ul.social-network {
