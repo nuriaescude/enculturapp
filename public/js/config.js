@@ -20,7 +20,8 @@ angular.module('mainApp')
         templateUrl: '/templates/listExpos.html'
       })
       .when('/detailExpo', {
-        templateUrl: '/templates/detailExpo.html'
+        templateUrl: '/templates/detailExpo.html',
+        controller: 'tabController'
       })
       .otherwise({ redirectTo: '/tutorial' });
   })
