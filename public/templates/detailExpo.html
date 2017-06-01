@@ -8,7 +8,7 @@
                         <a href ng-click="setTab(1)">Exhibition</a>
                     </li>
                     <li ng-class="{ active: isSet(2) }">
-                        <a href ng-click="setTab(2)">Information</a>
+                        <a href ng-click="setTab(2)">Documentation Center</a>
                     </li>
                 </ul>
             </div>
@@ -23,8 +23,25 @@
                         <p><a href="http://ajuntament.barcelona.cat/museudeldisseny/es/exposicion/david-bowie">Visit the museum website</a></p>
                     </div>
                     <div ng-show="isSet(2)">
-                        <h1>Information</h1>
-                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                        <div class="detail-expo-img" style="background-image: url('http://www.paseodegracia.com/wp-content/uploads/2014/10/inauguracion-edificio-disseny-hub-barcelona-1-600x393.jpg');">
+                        </div>
+                        <ul class="list-group no-margin-bottom">
+                            <li class="list-group-item list-details-center">
+                                Museu del Disseny de Barcelona</li>
+                            <li class="list-group-item list-details-center">Plaça de les Glòries</li>
+                            <li class="list-group-item list-details-center"><a href="http://ajuntament.barcelona.cat/museudeldisseny/es/exposicion/david-bowie">Museum website</a></li>
+                            <li class="list-group-item list-details-center">
+                                <ul class="social-network social-circle">
+                                    <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div>
+                            <h3>Actualem</h1>
+                        </div>
                     </div>
                 </div>
             </div>
