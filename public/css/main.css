@@ -198,7 +198,8 @@ body {
 .single-page {
     background-color: #F6F4EC;
     background-size: cover;
-    height: 113vh;
+    padding-bottom: 10px;
+    /*height: 113vh;*/
 }
 
 .single-page h1 {
@@ -429,7 +430,7 @@ body {
 }
 
 .single-page h1 {
-    font-size: 18px;
+    font-size: 15px;
 }
 
 
@@ -443,15 +444,18 @@ body {
 }
 
 .cards,
-.expos-cards {
+.expos-cards, .expos-cards-other {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     margin: 0;
     padding: 0 10px;
 }
+.cards {
+    padding-bottom: 30px;
+}
 
-.expos-cards {
+.expos-cards, .expos-cards-other {
     width: 100%;
     margin: 0;
     padding: 0 10px;
@@ -588,9 +592,11 @@ body {
     background: #F94877;
     transition: all 0.3s ease 0s;
 }
-
 .expos-cards {
     padding-top: 55px;
+}
+.expos-cards-other {
+    padding-top: 0;
 }
 
 .item-expo-box {
@@ -671,7 +677,12 @@ body {
     padding: 0;
     background: #fff;
 }
-
+.panel-body h4{
+    background: #ccc;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 .detail-expo-menu ul li {
     padding: 0;
 }
@@ -689,6 +700,7 @@ body {
 .detail-expo {
     font-weight: 700;
     font-size: 16px;
+    margin-top: 10px;
 }
 
 li.active {
@@ -700,7 +712,20 @@ li>.active {
     background: #fff;
     font-weight: 700;
 }
+.details{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+   list-style: none;
+   padding: 10px 90px;
+}
+.detail-item {
 
+    height: 20px;
+
+
+}
 .list-details-center {
     border-left: 0;
     border-right: 0;
@@ -739,7 +764,10 @@ ul.social-network li {
     margin: 0 5px;
     padding-right: 20px;
 }
-
 ul i {
     color: #333;
 }
+
+/* NAVBAR BOOTOM */
+
+
