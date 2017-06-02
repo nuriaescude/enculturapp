@@ -23,5 +23,5 @@ angular.module('mainApp')
         templateUrl: '/templates/detailExpo.html',
         controller: 'tabController'
       })
-      .otherwise({ redirectTo: '/tutorial' });
+      .otherwise({ redirectTo: '/landing' });
   })
