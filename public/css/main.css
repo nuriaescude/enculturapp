@@ -54,6 +54,67 @@ body {
     color: white
 }
 
+
+/* MOBILE NAVBAR */
+.navbar-nav.mobile-bar {
+    list-style: none;
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+    margin: 0px 0px;
+}
+.navbar-nav.mobile-bar > li {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    text-align: center;
+}
+.navbar-nav.mobile-bar > li > a > span.menu-icon {
+    display: block;
+    font-size: 1.8em;
+    color: white;
+}
+.navbar-more {
+    background-color: rgb(255, 255, 255);
+    height: calc(100% - 69px);
+    overflow: auto;
+}
+.navbar-more .navbar-form {
+    border-width: 0px;
+}
+.navbar-more .navbar-nav > li > a {
+    color: rgb(64, 64, 64);   
+}
+.navbar-more > .navbar-nav > li > a > span.menu-icon {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        height: auto;
+        -webkit-transform: translate(0px, 0px);
+        transform: translate(0px, 0px);
+    }
+    .navbar-nav.mobile-bar {
+        display: block;
+        max-height: 64px;
+        margin: 0px -15px;
+    }
+    .navbar-nav.mobile-bar > li > a > span.menu-icon {
+        display: none;
+    }
+}
+
 .container {
     margin: 0px;
     padding: 0px;
@@ -248,6 +309,21 @@ body {
 }
 
 
+/* SEARCH INPUT */
+
+.input-search-custom {
+    margin: 10px 10px 10px 10px;
+    border-radius: 30px;
+    width: 100%;
+    height: 30px;
+    opacity: 0.5;
+    border: none;
+}
+.form-group {
+    margin: 0;
+}
+
+
 /* enable absolute positioning */
 
 .inner-addon {
@@ -259,9 +335,9 @@ body {
 
 .inner-addon .glyphicon {
     position: absolute;
-    padding: 15px;
-    color: #414141;
-    pointer-events: none;
+    padding: 7px 15px 15px 20px;
+    color: #fff;
+    opacity: 0.6;
 }
 
 
@@ -279,7 +355,7 @@ body {
 /* add padding  */
 
 .left-addon input {
-    padding-left: 30px;
+    padding-left: 20px;
 }
 
 .right-addon input {
