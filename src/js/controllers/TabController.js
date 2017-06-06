@@ -1,5 +1,4 @@
-angular.module('mainApp')
-  .controller('tabController', ['$scope', function($scope) {
+function TabController($scope) {
     $scope.tab = 1;
 
     $scope.setTab = function(newTab){
@@ -9,4 +8,6 @@ angular.module('mainApp')
     $scope.isSet = function(tabNum){
       return $scope.tab === tabNum;
     };
-}]);
+};
+
+module.exports = TabController

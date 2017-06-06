@@ -1,6 +1,8 @@
-angular.module('mainApp')
-  .config(function ($routeProvider) {
+function configRoutes ($routeProvider) {
     $routeProvider
+      .when('/admin', {
+        templateUrl: '/templates/admin.html'
+      })
       .when('/tutorial', {
         templateUrl: '/templates/tutorial.html'
       })
@@ -21,7 +23,12 @@ angular.module('mainApp')
       })
       .when('/detailExpo', {
         templateUrl: '/templates/detailExpo.html',
-        controller: 'tabController'
+        controller: 'TabController'
+      })
+      .when('/userProfile', {
+        templateUrl: '/templates/userProfile.html',
       })
       .otherwise({ redirectTo: '/landing' });
-  })
+  };
+
+module.exports = configRoutes
