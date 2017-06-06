@@ -265,7 +265,16 @@ body {
     margin-bottom: 20px;
     padding: 0 20px;
 }
+.admin-page {
+    background-color: #F6F4EC;
+    background-size: cover;
+}
+.admin-page h2 {
+    margin-top: 50px;
+    padding-top: 10px;
+    font-size: 20px;
 
+}
 .single-page {
     background-color: #F6F4EC;
     background-size: cover;
@@ -529,9 +538,13 @@ body {
     }
 }
 
-.cards,
-.expos-cards, .expos-cards-other {
-    width: 100%;
+.list-expos {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 60px;
+    padding-left: 5px; 
+}
+.cards, .expos-cards-other {
     display: flex;
     flex-wrap: wrap;
     margin: 0;
@@ -540,11 +553,24 @@ body {
 .cards {
     padding-bottom: 30px;
 }
+.expos-cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+.expos-cards-other {
+    padding-top: 0;
+}
 
-.expos-cards, .expos-cards-other {
-    width: 100%;
-    margin: 0;
-    padding: 0 10px;
+.item-expo-box {
+    /*margin: 5px 10px 5px 0px;*/
+    height: 190px;
+    width: 172px;
+    box-sizing: border-box;
+/*    flex-basis: 46%;*/    
+    max-height: 190px;
+    max-width: 180px;
+    min-width: 90px;
+    /*min-height: 50px;*/
 }
 
 .item-mood-box {
@@ -678,24 +704,7 @@ body {
     background: #F94877;
     transition: all 0.3s ease 0s;
 }
-.expos-cards {
-    padding-top: 55px;
-}
-.expos-cards-other {
-    padding-top: 0;
-}
 
-.item-expo-box {
-    margin: 5px 10px 5px 0px;
-    height: 190px;
-    width: 180px;
-    box-sizing: border-box;
-    flex-basis: 46%;
-    max-height: 190px;
-    max-width: 180px;
-    min-width: 90px;
-    min-height: 50px;
-}
 
 .item-mood p {
     font-size: 14px;
@@ -710,6 +719,8 @@ body {
 .item-expo-img {
     background-position: center center;
     background-size: cover;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     height: 21vh;
 }
 
@@ -717,6 +728,9 @@ body {
     padding: 0;
     min-height: 212px;
     height: 190px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 14px;
 }
 
 .caption p {

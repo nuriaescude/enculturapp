@@ -1,7 +1,8 @@
 function configRoutes ($routeProvider) {
     $routeProvider
       .when('/admin', {
-        templateUrl: '/templates/admin.html'
+        templateUrl: '/templates/admin.html',
+        controller: 'AddController'
       })
       .when('/tutorial', {
         templateUrl: '/templates/tutorial.html'
@@ -19,7 +20,8 @@ function configRoutes ($routeProvider) {
         templateUrl: '/templates/setMood.html'
       })
       .when('/listExpos', {
-        templateUrl: '/templates/listExpos.html'
+        templateUrl: '/templates/listExpos.html',
+        controller: 'HomeController'
       })
       .when('/detailExpo', {
         templateUrl: '/templates/detailExpo.html',

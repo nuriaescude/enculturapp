@@ -10,13 +10,14 @@ const ExpoSchema = new mongoose.Schema({
   category: String,
   center: String,
   address: {
-  		street : String,
+  	street : String,
 		zipCode: String,
 		city   : String,
 		coord  : [Number],
   },
   openHours: String,
-  image: String
+  image: String,
+  imageCenter: String,
 }, { collection })
 
 module.exports = mongoose.model('Expo', ExpoSchema);
