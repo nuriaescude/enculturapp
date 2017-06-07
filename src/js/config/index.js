@@ -2,7 +2,12 @@ function configRoutes ($routeProvider) {
     $routeProvider
       .when('/admin', {
         templateUrl: '/templates/admin.html',
-        controller: 'AddController'
+        controller: 'AddController',
+        controllerAs: 'vm'
+      })
+      .when('/expo/:id', {
+        templateUrl: '/templates/detailExpo.html',
+        controller: 'ExpoDetailsController',
       })
       .when('/tutorial', {
         templateUrl: '/templates/tutorial.html'
@@ -23,10 +28,10 @@ function configRoutes ($routeProvider) {
         templateUrl: '/templates/listExpos.html',
         controller: 'HomeController'
       })
-      .when('/detailExpo', {
-        templateUrl: '/templates/detailExpo.html',
-        controller: 'TabController'
-      })
+      // .when('/detailExpo', {
+      //   templateUrl: '/templates/detailExpo.html',
+      //   controller: 'TabController'
+      // })
       .when('/userProfile', {
         templateUrl: '/templates/userProfile.html',
       })

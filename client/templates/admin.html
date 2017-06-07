@@ -1,31 +1,47 @@
 <div ng-include src="'templates/includes/navbarBack.html'"></div>
 <div class="admin-page">
-    <form class="form-register" ng-submit="addExpo()">
-    <h2>Admin panel</h2>
+    <form class="form-register">
+        <h2>Admin panel</h2>
         <div class="form-group">
-            <label for="nameExpo">Name</label>
+            <label for="nameExpo">Name of the exhibition:</label>
             <input ng-model="name" name="nameExpo" type="text" class="form-control" id="nameExpo" placeholder="Expo Title...">
         </div>
         <div class="form-group">
-            <label for="centerExpo">Center</label>
-            <input ng-model="center" name="centerExpo" type="text" class="form-control" id="centerExpo" placeholder="Center Expo...">
-        </div>
-        <div class="form-group">
-            <label for="imageCenter">Image Center</label>
-            <input ng-model="imageCenter" name="imageCenter" type="string" class="form-control" id="imageCenter" placeholder="Url Image Center...">
-        </div>
-        <div class="form-group">
-            <label for="categoryExpo">Category</label>
+            <label for="categoryExpo">Which mood?</label>
             <input ng-model="category" name="categoryExpo" type="text" class="form-control" id="categoryExpo" placeholder="Category">
         </div>
         <div class="form-group">
-            <label for="descriptionExpo">Description</label>
+            <label for="descriptionExpo">A Description of Exhibiton:</label>
             <input ng-model="description" name="descriptionExpo" type="text" class="form-control" id="descriptionExpo" placeholder="Expo Description...">
         </div>
         <div class="form-group">
-            <label for="imageExpo">Image</label>
-            <input ng-model="image" name="imageExpo" type="string" class="form-control" id="imageExpo" placeholder="Url Image Expo...">
+            <label for="imageExpo">Image of Exhibiton:</label>
+            <input ng-model="image" name="imageExpo" type="string" class="form-control" id="imageExpo" placeholder="Insert the Url Image Expo...">
         </div>
-        <button type="submit" class="btn btn-lg btn-primary btn-block btn-login">ADD EXPO</button>
+        <div class="form-group">
+            <label for="urlExternal">Link of the exhibition:</label>
+            <input ng-model="urlExternal" name="urlExternal" type="string" class="form-control" id="urlExternal" placeholder="Insert the Url of the exhibition...">
+        </div>
+        <div class="form-group">
+            <label for="center">Where?</label>
+            <input ng-model="center" name="center" type="text" class="form-control" id="center" placeholder="Center Expo name">
+        </div>
+        <div class="form-group">
+            <label for="openHoursDay">When DAY?</label>
+            <input ng-model="openHoursDay" name="openHoursDay" type="text" class="form-control" id="openHoursDay" placeholder="Enter opening hours">
+        </div>
+        <div class="form-group">
+            <label for="openHoursWeek">When WEEK?</label>
+            <input ng-model="openHoursWeek" name="openHoursWeek" type="text" class="form-control" id="openHoursWeek" placeholder="Enter opening hours">
+        </div>
+        <div class="form-group">
+            <label for="priceCenter">Price</label>
+            <input ng-model="priceCenter" name="priceCenter" type="text" class="form-control" id="priceCenter" placeholder="Center Expo name">
+        </div>
+        <div class="form-group">
+            <label for="imageCenter">Image of the Center:</label>
+            <input ng-model="imageCenter" name="imageCenter" type="string" class="form-control" id="imageCenter" placeholder="Insert the price...">
+        </div>
     </form>
+    <button ng-click="addExpo()" type="submit" class="btn btn-lg btn-primary btn-block btn-login">ADD EXPO</button>
 </div>

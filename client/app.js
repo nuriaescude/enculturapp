@@ -34617,17 +34617,22 @@ const angularRoute = require("angular-route");
 const TabController = require('./controllers/TabController');
 const HomeController = require('./controllers/HomeController');
 const AddController = require('./controllers/AddController');
+const ExpoDetailsController = require('./controllers/ExpoDetailsController');
 
 const configRoutes = require('./config');
 const ApiService = require('./services/ApiService');
 
-angular.module('mainApp', [angularRoute]).controller('TabController', TabController).controller('AddController', AddController).controller('HomeController', HomeController).factory('ApiService', ApiService).config(configRoutes);
+angular.module('mainApp', [angularRoute]).controller('TabController', TabController).controller('AddController', AddController).controller('HomeController', HomeController).controller('ExpoDetailsController', ExpoDetailsController).factory('ApiService', ApiService).config(configRoutes);
 
-},{"./config":6,"./controllers/AddController":7,"./controllers/HomeController":8,"./controllers/TabController":9,"./services/ApiService":10,"angular":4,"angular-route":2}],6:[function(require,module,exports){
+},{"./config":6,"./controllers/AddController":7,"./controllers/ExpoDetailsController":8,"./controllers/HomeController":9,"./controllers/TabController":10,"./services/ApiService":11,"angular":4,"angular-route":2}],6:[function(require,module,exports){
 function configRoutes($routeProvider) {
   $routeProvider.when('/admin', {
     templateUrl: '/templates/admin.html',
-    controller: 'AddController'
+    controller: 'AddController',
+    controllerAs: 'vm'
+  }).when('/expo/:id', {
+    templateUrl: '/templates/detailExpo.html',
+    controller: 'ExpoDetailsController'
   }).when('/tutorial', {
     templateUrl: '/templates/tutorial.html'
   }).when('/landing', {
@@ -34641,10 +34646,12 @@ function configRoutes($routeProvider) {
   }).when('/listExpos', {
     templateUrl: '/templates/listExpos.html',
     controller: 'HomeController'
-  }).when('/detailExpo', {
-    templateUrl: '/templates/detailExpo.html',
-    controller: 'TabController'
-  }).when('/userProfile', {
+  }
+  // .when('/detailExpo', {
+  //   templateUrl: '/templates/detailExpo.html',
+  //   controller: 'TabController'
+  // })
+  ).when('/userProfile', {
     templateUrl: '/templates/userProfile.html'
   }).otherwise({ redirectTo: '/landing' });
 };
@@ -34655,17 +34662,40 @@ module.exports = configRoutes;
 function AddController($scope, $rootScope, ApiService) {
 
     $rootScope.section = "add";
+    // let vm = this
 
     $scope.addExpo = function () {
 
-        const { name, center, category, description, image } = $scope;
+        const { name, center, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openHoursDay, openHoursWeek } = $scope;
 
-        ApiService.addExpo({ name, center, category, description, image }).then(console.log);
+        ApiService.addExpo({ name, center, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openHoursDay, openHoursWeek }).then(console.log);
     };
+    // vm.submitExpo = (e) => {
+    //   e.preventDefault()
+    // }
+
+    // vm.keyPressAdd = (e) => {
+
+    //    if (e.keyCode === 13) {
+    //      if (e.target.name === 'name') vm.addName()
+    //      if (e.target.name === 'center') vm.addCenter()
+    //    }
+    //  }
 }
 module.exports = AddController;
 
 },{}],8:[function(require,module,exports){
+function ExpoDetailsController($scope, $rootScope, $routeParams, ApiService) {
+    $rootScope.section = "";
+    const id = $routeParams.id;
+
+    ApiService.getDetailsExpo(id).then(expos => {
+        $scope.expos = expos;
+    });
+}
+module.exports = ExpoDetailsController;
+
+},{}],9:[function(require,module,exports){
 function MainController($scope, $rootScope, ApiService) {
 
 	$rootScope.section = "home";
@@ -34679,7 +34709,7 @@ function MainController($scope, $rootScope, ApiService) {
 
 module.exports = MainController;
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 function TabController($scope) {
   $scope.tab = 1;
 
@@ -34694,12 +34724,16 @@ function TabController($scope) {
 
 module.exports = TabController;
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 function DataService($http) {
 
 	function getAllExpos() {
 		return $http.get('/api/expos').then(response => response.data);
 	}
+	function getDetailsExpo(id) {
+		return $http.get(`/api/expo/${id}`).then(response => response.data);
+	}
+
 	function addExpo(data) {
 		return $http.post('/api/expos', data).then(response => response.data);
 	}
@@ -34708,7 +34742,7 @@ function DataService($http) {
 		return $http.delete(`/api/expo/${id}`).then(response => response.data);
 	}
 
-	return { getAllExpos, addExpo, removeExpo };
+	return { getAllExpos, getDetailsExpo, addExpo, removeExpo };
 }
 module.exports = DataService;
 

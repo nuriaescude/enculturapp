@@ -15,9 +15,6 @@ body {
     }
 /* NAVBAR */
 
-.navbar {
-    box-shadow: 0 1px 4px rgba(41, 51, 57, .5);
-}
 
 .navbar-default {
     border: none;
@@ -597,7 +594,7 @@ body {
     align-items: center;
 }
 
-.item-expo-box a {
+.thumbnail a {
     width: 100%;
     height: 100%;
     display: block;
