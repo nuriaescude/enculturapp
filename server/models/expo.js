@@ -22,7 +22,7 @@ const ExpoSchema = new mongoose.Schema({
   infoCenter: String,
   priceCenter: String,
   openingTimes: String,
-  openingToday: Number,
+  openingToday: String,
   // likes: [{type: ObjectId, ref: 'User'}]
 }, { collection })
 
