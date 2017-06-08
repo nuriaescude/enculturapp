@@ -1,10 +1,10 @@
-<div class="navbar navbar-default navbar-fixed-top main-navbar">
+<div class="navbar navbar-default navbar-fixed-top main-navbar" ng-repeat="expo in expos">
     <div class="container-fluid">
         <div class="navbar-header">
             <a href="/#!/setMood" class="navbar-brand visible-xs">
-                <i class="fa fa-fw fa fa-arrow-left"></i>Discoverer
+                <i class="fa fa-fw fa fa-arrow-left"></i>{{expo.category}}
             </a>
-            <a href="#" class="navbar-brand hidden-xs">Discoverer</a>
+            <a href="#" class="navbar-brand hidden-xs" >{{ expos.category }}</a>
         </div>
     </div>
 </div>

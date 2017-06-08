@@ -1,47 +1,62 @@
 <div ng-include src="'templates/includes/navbarBack.html'"></div>
 <div class="admin-page">
+
     <form class="form-register">
+    <fieldset>
+    <div id="legend">
         <h2>Admin panel</h2>
-        <div class="form-group">
-            <label for="nameExpo">Name of the exhibition:</label>
+    </div>
+        <div class="control-group">
+            <label class="control-label" for="nameExpo">Name of the exhibition:</label>
             <input ng-model="name" name="nameExpo" type="text" class="form-control" id="nameExpo" placeholder="Expo Title...">
+            <p class="help-block">Username can contain any letters or numbers, without spaces</p>
         </div>
-        <div class="form-group">
-            <label for="categoryExpo">Which mood?</label>
+        <div class="control-group">
+            <label class="control-label" for="categoryExpo">Which mood?</label>
             <input ng-model="category" name="categoryExpo" type="text" class="form-control" id="categoryExpo" placeholder="Category">
+            <p class="help-block">Username can contain any letters or numbers, without spaces</p>
         </div>
-        <div class="form-group">
-            <label for="descriptionExpo">A Description of Exhibiton:</label>
-            <input ng-model="description" name="descriptionExpo" type="text" class="form-control" id="descriptionExpo" placeholder="Expo Description...">
+        <div class="control-group">
+            <label class="control-label" for="descriptionExpo">A Description of Exhibiton:</label>
+            <textarea rows="3" ng-model="description" name="descriptionExpo" type="text" class="form-control" id="descriptionExpo" placeholder="Expo Description..."></textarea>
+            <p class="help-block">Username can contain any letters or numbers, without spaces</p>
         </div>
-        <div class="form-group">
-            <label for="imageExpo">Image of Exhibiton:</label>
+        <div class="control-group">
+            <label class="control-label" for="imageExpo">Image of Exhibiton:</label>
             <input ng-model="image" name="imageExpo" type="string" class="form-control" id="imageExpo" placeholder="Insert the Url Image Expo...">
+            <p class="help-block">Username can contain any letters or numbers, without spaces</p>
         </div>
-        <div class="form-group">
-            <label for="urlExternal">Link of the exhibition:</label>
+        <div class="control-group">
+            <label class="control-label" for="urlExternal">Link of the exhibition:</label>
             <input ng-model="urlExternal" name="urlExternal" type="string" class="form-control" id="urlExternal" placeholder="Insert the Url of the exhibition...">
+            <p class="help-block">Username can contain any letters or numbers, without spaces</p>
         </div>
-        <div class="form-group">
-            <label for="center">Where?</label>
+        <div class="control-group">
+            <label class="control-label" for="center">Where?</label>
             <input ng-model="center" name="center" type="text" class="form-control" id="center" placeholder="Center Expo name">
+            <p class="help-block">Username can contain any letters or numbers, without spaces</p>
         </div>
-        <div class="form-group">
-            <label for="openHoursDay">When DAY?</label>
-            <input ng-model="openHoursDay" name="openHoursDay" type="text" class="form-control" id="openHoursDay" placeholder="Enter opening hours">
+        <div class="control-group">
+            <label class="control-label" for="openingToday">When DAY?</label>
+            <input ng-model="openingToday" name="openingToday" type="text" class="form-control" id="openingToday" placeholder="Enter opening hours">
+            <p class="help-block">Username can contain any letters or numbers, without spaces</p>
         </div>
-        <div class="form-group">
-            <label for="openHoursWeek">When WEEK?</label>
-            <input ng-model="openHoursWeek" name="openHoursWeek" type="text" class="form-control" id="openHoursWeek" placeholder="Enter opening hours">
+        <div class="control-group">
+            <label class="control-label" for="openingTimes">When WEEK?</label>
+            <input ng-model="openingTimes" name="openingTimes" type="text" class="form-control" id="openingTimes" placeholder="Enter the opening hours ">
+            <p class="help-block">Username can contain any letters or numbers, without spaces</p>
         </div>
-        <div class="form-group">
-            <label for="priceCenter">Price</label>
-            <input ng-model="priceCenter" name="priceCenter" type="text" class="form-control" id="priceCenter" placeholder="Center Expo name">
+        <div class="control-group">
+            <label class="control-label" for="priceCenter">Price</label>
+            <input ng-model="priceCenter" name="priceCenter" type="text" class="form-control" id="priceCenter" placeholder="Insert the price of the entrance">
+            <p class="help-block">For example: 4,50€ or Admissions free</p>
         </div>
-        <div class="form-group">
-            <label for="imageCenter">Image of the Center:</label>
+        <div class="control-group">
+            <label class="control-label" for="imageCenter">Image of the Center:</label>
             <input ng-model="imageCenter" name="imageCenter" type="string" class="form-control" id="imageCenter" placeholder="Insert the price...">
+            <p class="help-block">Username can contain any letters or numbers, without spaces</p>
         </div>
+        </fieldset>
     </form>
     <button ng-click="addExpo()" type="submit" class="btn btn-lg btn-primary btn-block btn-login">ADD EXPO</button>
 </div>

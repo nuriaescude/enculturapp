@@ -24,7 +24,7 @@ function configRoutes ($routeProvider) {
       .when('/setMood', {
         templateUrl: '/templates/setMood.html'
       })
-      .when('/listExpos', {
+      .when('/listExpos/:mood', {
         templateUrl: '/templates/listExpos.html',
         controller: 'HomeController'
       })
@@ -35,6 +35,9 @@ function configRoutes ($routeProvider) {
       .when('/userProfile', {
         templateUrl: '/templates/userProfile.html',
       })
+      .when('/search/', {
+      templateUrl: '/templates/searchExpo.html',
+    })
       .otherwise({ redirectTo: '/landing' });
   };
 

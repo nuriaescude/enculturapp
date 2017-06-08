@@ -34618,13 +34618,14 @@ const TabController = require('./controllers/TabController');
 const HomeController = require('./controllers/HomeController');
 const AddController = require('./controllers/AddController');
 const ExpoDetailsController = require('./controllers/ExpoDetailsController');
+const ExposMoodController = require('./controllers/ExposMoodController');
 
 const configRoutes = require('./config');
 const ApiService = require('./services/ApiService');
 
-angular.module('mainApp', [angularRoute]).controller('TabController', TabController).controller('AddController', AddController).controller('HomeController', HomeController).controller('ExpoDetailsController', ExpoDetailsController).factory('ApiService', ApiService).config(configRoutes);
+angular.module('mainApp', ['ngRoute', 'ngFileUpload']).controller('TabController', TabController).controller('AddController', AddController).controller('HomeController', HomeController).controller('ExpoDetailsController', ExpoDetailsController).controller('ExposMoodController', ExposMoodController).factory('ApiService', ApiService).config(configRoutes);
 
-},{"./config":6,"./controllers/AddController":7,"./controllers/ExpoDetailsController":8,"./controllers/HomeController":9,"./controllers/TabController":10,"./services/ApiService":11,"angular":4,"angular-route":2}],6:[function(require,module,exports){
+},{"./config":6,"./controllers/AddController":7,"./controllers/ExpoDetailsController":8,"./controllers/ExposMoodController":9,"./controllers/HomeController":10,"./controllers/TabController":11,"./services/ApiService":12,"angular":4,"angular-route":2}],6:[function(require,module,exports){
 function configRoutes($routeProvider) {
   $routeProvider.when('/admin', {
     templateUrl: '/templates/admin.html',
@@ -34643,7 +34644,7 @@ function configRoutes($routeProvider) {
     templateUrl: '/templates/register.html'
   }).when('/setMood', {
     templateUrl: '/templates/setMood.html'
-  }).when('/listExpos', {
+  }).when('/listExpos/:mood', {
     templateUrl: '/templates/listExpos.html',
     controller: 'HomeController'
   }
@@ -34653,6 +34654,8 @@ function configRoutes($routeProvider) {
   // })
   ).when('/userProfile', {
     templateUrl: '/templates/userProfile.html'
+  }).when('/search/', {
+    templateUrl: '/templates/searchExpo.html'
   }).otherwise({ redirectTo: '/landing' });
 };
 
@@ -34670,17 +34673,6 @@ function AddController($scope, $rootScope, ApiService) {
 
         ApiService.addExpo({ name, center, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openHoursDay, openHoursWeek }).then(console.log);
     };
-    // vm.submitExpo = (e) => {
-    //   e.preventDefault()
-    // }
-
-    // vm.keyPressAdd = (e) => {
-
-    //    if (e.keyCode === 13) {
-    //      if (e.target.name === 'name') vm.addName()
-    //      if (e.target.name === 'center') vm.addCenter()
-    //    }
-    //  }
 }
 module.exports = AddController;
 
@@ -34696,11 +34688,29 @@ function ExpoDetailsController($scope, $rootScope, $routeParams, ApiService) {
 module.exports = ExpoDetailsController;
 
 },{}],9:[function(require,module,exports){
-function MainController($scope, $rootScope, ApiService) {
+function ExposMoodController($scope, $rootScope, $routeParams, ApiService) {
+    $rootScope.section = "";
+    const id = $routeParams.id;
+    $scope.moodCategory = id;
+
+    ApiService.getByMood(id).then(expos => {
+        $scope.expos = expos;
+        console.log($scope.expos);
+        console.log($scope.moodCategory);
+    });
+}
+module.exports = ExposMoodController;
+
+},{}],10:[function(require,module,exports){
+function MainController($scope, $rootScope, $routeParams, ApiService) {
 
 	$rootScope.section = "home";
 
-	ApiService.getAllExpos().then(expos => $scope.expos = expos);
+	const mood = $routeParams.mood;
+
+	console.error(mood);
+
+	ApiService.getExposByMood(mood).then(expos => $scope.expos = expos);
 
 	$scope.removeExpo = function (id) {
 		ApiService.removeExpo(id).then(console.log);
@@ -34709,7 +34719,7 @@ function MainController($scope, $rootScope, ApiService) {
 
 module.exports = MainController;
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 function TabController($scope) {
   $scope.tab = 1;
 
@@ -34724,11 +34734,14 @@ function TabController($scope) {
 
 module.exports = TabController;
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 function DataService($http) {
 
 	function getAllExpos() {
 		return $http.get('/api/expos').then(response => response.data);
+	}
+	function getExposByMood(mood) {
+		return $http.get(`/api/expos/${mood}`).then(response => response.data);
 	}
 	function getDetailsExpo(id) {
 		return $http.get(`/api/expo/${id}`).then(response => response.data);
@@ -34742,7 +34755,7 @@ function DataService($http) {
 		return $http.delete(`/api/expo/${id}`).then(response => response.data);
 	}
 
-	return { getAllExpos, getDetailsExpo, addExpo, removeExpo };
+	return { getAllExpos, getExposByMood, getDetailsExpo, addExpo, removeExpo };
 }
 module.exports = DataService;
 

@@ -1,19 +1,86 @@
 <div ng-include src="'templates/includes/navbarBack.html'"></div>
 <div class="single-page">
-    <div class="panel" ng-controller="tabController">
+    <div class="panel" ng-controller="TabController">
         <div class="row">
             <div class="col-md-2">
                 <ul class="detail-expo-menu nav panel-tabs">
                     <li ng-class="{ active: isSet(1) }">
-                        <a href ng-click="setTab(1)">Visits</a>
+                        <a href ng-click="setTab(1)">Likes</a>
                     </li>
                     <li ng-class="{ active: isSet(2) }">
-                        <a href ng-click="setTab(2)">Favs</a>
+                        <a href ng-click="setTab(2)">Visits</a>
                     </li>
                 </ul>
             </div>
+            <div class="col-md-8">
+                <div class="panel-body">
+                    <div ng-show="isSet(1)">
+                        <p class="detail-expo text-center">Exhibition details</p>
+                        <section>
+                            <ul class="details">
+                                <li>
+                                    <div class="detail-item"><i class="fa fa-clock-o"></i>1h 30m</div>
+                                </li>
+                                <li>
+                                    <div class="detail-item"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+                                </li>
+                                <li>
+                                    <div class="detail-item"><i class="fa fa-lock"></i></div>
+                                </li>
+                            </ul>
+                        </section>
+                        <p>{{ expos.description }}</p>
+                        <p><a target="_blank" href="http://ajuntament.barcelona.cat/museudeldisseny/es/exposicion/david-bowie">Visit the museum website</a></p>
+                    </div>
+                    <div ng-show="isSet(2)">
+                        <div class="detail-expo-img" ng-style="{'background-image': 'url(' + expos.imageCenter + ')'}" ng-alt="{{ expos.center }}">
+                        </div>
+                        <ul class="list-group no-margin-bottom">
+                            <li class="list-group-item list-details-center">
+                                {{ expos.center }}</li>
+                            <li class="list-group-item list-details-center"><i class="fa fa-location-arrow" aria-hidden="true"></i>Plaça de les Glòries</li>
+                            <li class="list-group-item list-details-center"><i class="fa fa-link" aria-hidden="true"></i><a ng-href="http://{{$expos.urlExternal}}" target="_blank">Museum website</a></li>
+                            <li class="list-group-item list-details-center">
+                                <ul class="social-network social-circle">
+                                    <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div>
+                            <p>{{expos.priceCenter}}</p>
+                            <p>{{expos.priceCenter}}</p>
+                            <p>{{expos.openHoursWeek}}</p>
+                        </div>
+                        <div>
+                            <div class="list-expos">
+                                <h2>Other current exhibitions</h2>
+                                <section class="expos-cards-other">
+                                    <div class="thumbnail item-expo-box">
+                                        <div class="item-expo-img" ng-style="{'background-image': 'url(' + expos.imageCenter + ')'}" ng-alt="{{ expos.center }}">
+                                        </div>
+                                        <div class="caption">
+                                            <a href="/#!/detailExpo">
+                                                <p class="expo-name">Dressing the body. Silhouettes and fashion (1550-2015)</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="thumbnail item-expo-box">
+                                        <div class="item-expo-img" ng-style="{'background-image': 'url(' + expos.imageCenter + ')'}" ng-alt="{{ expos.center }}">
+                                        </div>
+                                        <div class="caption">
+                                            <a href="/#!/detailExpo">
+                                                <p class="expo-name">From the World to the Museum. Product Design, Cultural Heritage</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<div ng-include src="'templates/includes/navbarBottom.html'"></div> 
-
+<div ng-include src="'templates/includes/navbarBottom.html'"></div>
