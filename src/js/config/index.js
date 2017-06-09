@@ -26,17 +26,15 @@ function configRoutes ($routeProvider) {
       })
       .when('/listExpos/:mood', {
         templateUrl: '/templates/listExpos.html',
-        controller: 'HomeController'
+        controller: 'ListExposController'
       })
-      // .when('/detailExpo', {
-      //   templateUrl: '/templates/detailExpo.html',
-      //   controller: 'TabController'
-      // })
       .when('/userProfile', {
         templateUrl: '/templates/userProfile.html',
       })
-      .when('/search/', {
+      .when('/search/:query', {
       templateUrl: '/templates/searchExpo.html',
+      controller: 'SearchExposController',
+      controllerAs: 'vm',
     })
       .otherwise({ redirectTo: '/landing' });
   };

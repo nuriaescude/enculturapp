@@ -1,30 +1,29 @@
 <div ng-include src="'templates/includes/navbarMain.html'"></div>
-<section id="searchform-responsive" class="navbar-header navbar-second">
-    <div class="items-nav items-nav-second">
-        <ul class="navbar-list nav-form-search">
-            <li class="form-search">
-                <form-search-recipes value="queryFood"></form-search-recipes>
-            </li>
-        </ul>
-    </div>
-</section>
-<section>
-    <h3>Resultados para el termino "<span>{{query}}</span>"</h3>
+<div class="list-expos">
+    <h3 class="title-section">Results for: "<span>{{ queryExpo }}</span>"</h3>
     <div ng-if="vm.showNoResult">
-        <div class="alert alert-info">
-            <strong>Buscando...</strong>
-        </div>
     </div>
     <div ng-if="vm.notFound">
         <div class="alert alert-danger">
-            <strong>No se han encontrado resultados.</strong>
+            <strong>No results found :(</strong>
         </div>
     </div>
-    <div ng-if="vm.Expos" class="col-flex" infinite-scroll="vm.showMoreItems()" infinite-scroll-distance="0" infinite-scroll-disabled="vm.hasMoreItemsToShow(aRecipes.length)">
-        <article class="item-flex" ng-repeat="recipe in vm.aRecipes | limitTo: vm.paginationLimit()">
-            <recipe-external ng-if="recipe.urlExternal" recipe=recipe></recipe-external>
-            <recipe-internal ng-if="recipe.urlExternal === undefined" recipe=recipe></recipe-internal>
-        </article>
+    <div ng-if="vm.expos">
+        <section ng-repeat="expo in expos" class="expos-cards">
+            <div class="thumbnail item-expo-box">
+                <a ng-href="/#!/expo/{{ expo._id }}">
+                    <div class="item-expo-img" ng-style="{'background-image': 'url(' + expo.image + ')'}" ng-alt="{{ expo.name }}">
+                    </div>
+                    <div class="caption">
+                        <p class="expo-name">{{ expo.name }}</p>
+                        <p class="center-name">{{ expo.center }}</p>
+                        <div class="expo-val">
+                            <p><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star-o"></span><span class="pull-right"><i class="fa fa-clock-o"></i>1h 30m</span></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
     </div>
-</section>
+</div>
 <div ng-include src="'templates/includes/navbarBottom.html'"></div>

@@ -3,7 +3,7 @@ function ExpoDetailsController($scope, $rootScope, $routeParams, ApiService) {
     const id = $routeParams.id
 
     ApiService.getDetailsExpo(id)
-        .then(expos => { $scope.expos = expos })
+        .then(expo => { $scope.expo = expo })
         
 }
 module.exports = ExpoDetailsController

@@ -22,7 +22,18 @@ function DataService ($http) {
 		return $http.delete(`/api/expo/${id}`)
 			.then( response => response.data )
 	}
+	function searchExpos (query) {
+      return $http.get(`/api/recipes/search?q=${query}`)
+                .then(({data}) => {
+                  data = data.map(elem => {
+            
+                    return elem
+                  })
+                  return data
+                })
+    }
 
-	return { getAllExpos, getExposByMood, getDetailsExpo, addExpo, removeExpo }
+
+	return { getAllExpos, getExposByMood, getDetailsExpo, addExpo, removeExpo, searchExpos }
 }
 module.exports = DataService

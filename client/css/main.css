@@ -279,7 +279,8 @@ body {
     background-color: #F6F4EC;
     background-size: cover;
     padding-bottom: 10px;
-    /*height: 113vh;*/
+    height: calc(113vh - 50px);
+    overflow: auto;
 }
 
 .single-page h1 {
@@ -300,13 +301,17 @@ body {
 
 .form-signin,
 .form-register,
-.landing-btn,
-.form-admin  {
+.landing-btn  {
     max-width: 380px;
     margin: 0 auto;
     font-weight: lighter;
 }
 
+.form-admin  {
+    max-width: 500px;
+    margin: 0 auto;
+    font-weight: lighter;
+}
 
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
@@ -326,6 +331,17 @@ body {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+.form-admin .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 0;
 }
 
 
