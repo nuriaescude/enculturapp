@@ -34663,13 +34663,32 @@ module.exports = configRoutes;
 function AddController($scope, $rootScope, ApiService) {
 
     $rootScope.section = "add";
-    // let vm = this
+    $scope.title = "Admin";
+
+    $scope.categories = [{ name: 'Be informed', selected: false }, { name: 'Cinephile', selected: false }, { name: 'Classic', selected: false }, { name: 'Disconnected', selected: false }, { name: 'Discoverer', selected: false }, { name: 'Entertained', selected: false }, { name: 'Exotic', selected: false }, { name: 'Explorer', selected: false }, { name: 'In love', selected: false }, { name: 'Inspired', selected: false }, { name: 'Musical', selected: false }, { name: 'Nostalgic', selected: false }, { name: 'On holiday', selected: false }, { name: 'Relaxed', selected: false }, { name: 'Romantic', selected: false }, { name: 'Vintage', selected: false }, { name: 'With energy', selected: false }, { name: 'With family', selected: false }];
+
+    $scope.category = [];
+
+    // Helper method to get selected categories
+    $scope.selectedCategories = function selectedCategories() {
+        return filterFilter($scope.categories, { selected: true });
+    };
+
+    // Watch categories for changes
+    $scope.$watch('categories|filter:{selected:true}', function (nv) {
+        $scope.category = nv.map(function (category) {
+            return category.name;
+        });
+    }, true);
 
     $scope.addExpo = function () {
 
         const { name, center, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openingToday, openingTimes } = $scope;
 
         ApiService.addExpo({ name, center, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openingToday, openingTimes }).then(console.log);
+    };
+    $scope.doTheBack = function () {
+        window.history.back();
     };
 }
 module.exports = AddController;
@@ -34681,7 +34700,13 @@ function ExpoDetailsController($scope, $rootScope, $routeParams, ApiService) {
 
     ApiService.getDetailsExpo(id).then(expo => {
         $scope.expo = expo;
+        $scope.title = expo.name;
+        console.log(expo);
+        $scope.backPath = '/#!/listExpos/' + expo.category[0];
     });
+    $scope.doTheBack = function () {
+        window.history.back();
+    };
 }
 module.exports = ExpoDetailsController;
 
@@ -34696,6 +34721,9 @@ function ExposMoodController($scope, $rootScope, $routeParams, ApiService) {
         console.log($scope.expos);
         console.log($scope.moodCategory);
     });
+    $scope.doTheBack = function () {
+        window.history.back();
+    };
 }
 module.exports = ExposMoodController;
 
@@ -34704,12 +34732,17 @@ function MainController($scope, $rootScope, $routeParams, ApiService) {
 
 	$rootScope.section = "home";
 
-	$scope.mood = $routeParams.mood;
+	$scope.mood = $routeParams.mood.replace(/[\W]+/g, " ");
+	$scope.title = $scope.mood;
+	$scope.backPath = '/#!/setMood';
 
 	ApiService.getExposByMood($scope.mood).then(expos => $scope.expos = expos);
 
 	$scope.removeExpo = function (id) {
 		ApiService.removeExpo(id).then(console.log);
+	};
+	$scope.doTheBack = function () {
+		window.history.back();
 	};
 }
 
@@ -34727,7 +34760,7 @@ function SearchExpoController($scope, $rootScope, $routeParams, ApiService) {
   $q.all([ApiService.searchExpos(query)]).then(data => {
     let expos = [...data[0], ...data[1], ...data[2]];
     vm.showNoResult = false;
-    if (recipes.length === 0) {
+    if (expos.length === 0) {
       vm.notFound = true;
     }
     /* Top of page in a new search */

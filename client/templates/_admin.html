@@ -1,0 +1,160 @@
+<div ng-include src="'templates/includes/navbarBack.html'"></div>
+<div class="admin-page container-fluid">
+    <form class="form-admin">
+        <fieldset>
+            <div id="legend">
+                <h2>Add an exhibition</h2>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="center">Select the place:</label>
+                <input ng-model="center" name="center" type="text" class="form-control" id="center" placeholder="Center Expo name">
+                <p class="help-block">For example: Museu del Disseny</p>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="nameExpo">Name of the exhibition:</label>
+                <input ng-model="name" name="nameExpo" type="text" class="form-control" id="nameExpo" placeholder="Expo Title">
+                <p class="help-block">For example: David Bowie is</p>
+            </div>
+            <div class="control-group" role="group" ng-model="category">
+                <label class="control-label" for="categoryExpo">Which mood?</label>
+                
+                <div class="row">
+                    <div class="col-md-4 col-xs-4">
+                        <div class="checkbox">
+                            <label>
+                              <input type="checkbox">Be informed
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Cinephile
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Classic
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Disconnected
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Discoverer
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Entertained
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Exotic
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Explorer
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">In love
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Inspired
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Musical
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Nostalgic
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">On holiday
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Relax
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Romantic
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Vintage
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">With energy
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">With family
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <p class="help-block">Select one or more than one mood.</p>
+                <input name="categoryExpo" type="text" class="form-control" id="categoryExpo" placeholder="Enter mood">
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="descriptionExpo">A Description of Exhibiton:</label>
+                <textarea rows="5" ng-model="description" name="descriptionExpo" type="text" class="form-control" id="descriptionExpo" placeholder="Expo Description..."></textarea>
+                <p class="help-block">Make sure to use line break wherever you want.</p>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="imageExpo">Image of Exhibiton:</label>
+                <input ng-model="image" name="imageExpo" type="string" class="form-control" id="imageExpo" placeholder="Insert the Url Image Expo...">
+                <p class="help-block">For example: https://media.timeout.com/images/100571667/1372/772/image.jpg</p>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="urlExternal">Link of the exhibition:</label>
+                <input ng-model="urlExternal" name="urlExternal" type="string" class="form-control" id="urlExternal" placeholder="Insert the Url of the exhibition...">
+                <p class="help-block">For example: http://bjorkdigital.cccb.org/ca/</p>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="openingToday">When DAY?</label>
+                <input ng-model="openingToday" name="openingToday" type="text" class="form-control" id="openingToday" placeholder="Enter opening hours">
+                <p class="help-block">For example: 10am to 20pm.</p>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="openingTimes">When WEEK?</label>
+                <textarea rows="5" ng-model="openingTimes" name="openingTimes" type="text" class="form-control" id="openingTimes" placeholder="Enter the opening hours "></textarea>
+                <p class="help-block">Make sure to use line break wherever you want.</p>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="priceCenter">Price</label>
+                <textarea rows="3" ng-model="priceCenter" name="priceCenter" type="text" class="form-control" id="priceCenter" placeholder="Insert the price of the entrance"></textarea>
+                <p class="help-block">For example: 4,50€ or Admissions free</p>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="imageCenter">Image of the Center:</label>
+                <input ng-model="imageCenter" name="imageCenter" type="string" class="form-control" id="imageCenter" placeholder="Insert the price...">
+                <p class="help-block">For example: https://media.timeout.com/images/100571667/1372/772/image.jpg</p>
+            </div>
+        </fieldset>
+    </form>
+    <div class=""><button ng-click="addExpo()" type="submit" class="btn btn-lg btn-primary btn-block btn-login pull-right">ADD EXPO</button></div>
+</div>

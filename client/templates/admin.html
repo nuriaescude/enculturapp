@@ -17,107 +17,13 @@
             </div>
             <div class="control-group" role="group">
                 <label class="control-label" for="categoryExpo">Which mood?</label>
-                
-                <div class="row">
-                    <div class="col-md-4 col-xs-4">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Be informed
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Cinephile
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Classic
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Disconnected
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Discoverer
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Entertained
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-xs-4">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Exotic
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Explorer
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">In love
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Inspired
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Musical
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Nostalgic
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-xs-4">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">On holiday
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Relax
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Romantic
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">Vintage
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">With energy
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">With family
-                            </label>
-                        </div>
-                    </div>
+                <div class="checkbox" ng-repeat="category in categories">
+                    <label>
+                        <input type="checkbox" name="selectedCategories[]" value="{{category.name}}" ng-model="category.selected"> {{category.name}}
+                    </label>
                 </div>
                 <p class="help-block">Select one or more than one mood.</p>
-                <input ng-model="category" name="categoryExpo" type="text" class="form-control" id="categoryExpo" placeholder="Enter mood">
+                <input readonly="true" name="categoryExpo" type="text" class="hidden" id="categoryExpo" placeholder="Enter mood" ng-model="category">
             </div>
             <div class="control-group">
                 <label class="control-label" for="descriptionExpo">A Description of Exhibiton:</label>
@@ -140,21 +46,23 @@
                 <p class="help-block">For example: 10am to 20pm.</p>
             </div>
             <div class="control-group">
-                <label class="control-label" for="openingTimes">When WEEK?</label>
-                <textarea rows="5" ng-model="openingTimes" name="openingTimes" type="text" class="form-control" id="openingTimes" placeholder="Enter the opening hours "></textarea>
+                <label class="control-label" for="openingTimes">Opening times:</label>
+                <textarea rows="5" ng-model="openingTimes" name="openingTimes" type="text" class="form-control" id="openingTimes" placeholder="Enter the opening hours of the center"></textarea>
                 <p class="help-block">Make sure to use line break wherever you want.</p>
             </div>
             <div class="control-group">
-                <label class="control-label" for="priceCenter">Price</label>
+                <label class="control-label" for="priceCenter">Price:</label>
                 <textarea rows="3" ng-model="priceCenter" name="priceCenter" type="text" class="form-control" id="priceCenter" placeholder="Insert the price of the entrance"></textarea>
-                <p class="help-block">For example: 4,50€ or Admissions free</p>
+                <p class="help-block">For example: 4,50€ or free entry</p>
             </div>
             <div class="control-group">
                 <label class="control-label" for="imageCenter">Image of the Center:</label>
-                <input ng-model="imageCenter" name="imageCenter" type="string" class="form-control" id="imageCenter" placeholder="Insert the price...">
+                <input ng-model="imageCenter" name="imageCenter" type="string" class="form-control" id="imageCenter" placeholder="Insert the image of the center">
                 <p class="help-block">For example: https://media.timeout.com/images/100571667/1372/772/image.jpg</p>
             </div>
         </fieldset>
     </form>
-    <div class=""><button ng-click="addExpo()" type="submit" class="btn btn-lg btn-primary btn-block btn-login pull-right">ADD EXPO</button></div>
+    <div class="">
+        <button ng-click="selectCategory();addExpo()" type="submit" class="btn btn-lg btn-primary btn-block btn-login pull-right">ADD EXPO</button>
+    </div>
 </div>

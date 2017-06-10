@@ -1,7 +1,42 @@
 function AddController($scope, $rootScope, ApiService) {
 
     $rootScope.section = "add"
-    // let vm = this
+    $scope.title = "Admin"
+
+    $scope.categories = [
+        { name: 'Be informed', selected: false },
+        { name: 'Cinephile', selected: false },
+        { name: 'Classic', selected: false },
+        { name: 'Disconnected', selected: false },
+        { name: 'Discoverer', selected: false },
+        { name: 'Entertained', selected: false },
+        { name: 'Exotic', selected: false },
+        { name: 'Explorer', selected: false },
+        { name: 'In love', selected: false },
+        { name: 'Inspired', selected: false },
+        { name: 'Musical', selected: false },
+        { name: 'Nostalgic', selected: false },
+        { name: 'On holiday', selected: false },
+        { name: 'Relaxed', selected: false },
+        { name: 'Romantic', selected: false },
+        { name: 'Vintage', selected: false },
+        { name: 'With energy', selected: false },
+        { name: 'With family', selected: false }
+    ]
+
+    $scope.category = []
+
+    // Helper method to get selected categories
+    $scope.selectedCategories = function selectedCategories() {
+        return filterFilter($scope.categories, { selected: true })
+    };
+
+    // Watch categories for changes
+    $scope.$watch('categories|filter:{selected:true}', function(nv) {
+        $scope.category = nv.map(function(category) {
+            return category.name
+        });
+    }, true);
 
     $scope.addExpo = function() {
 
@@ -9,6 +44,9 @@ function AddController($scope, $rootScope, ApiService) {
 
         ApiService.addExpo({ name, center, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openingToday, openingTimes })
             .then(console.log)
+    }
+    $scope.doTheBack = function() {
+        window.history.back();
     }
 
 }

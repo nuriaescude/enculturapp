@@ -11,7 +11,7 @@ function SearchExpoController($scope, $rootScope, $routeParams, ApiService) {
     ]).then(data => {
       let expos = [...data[0], ...data[1], ...data[2]]
       vm.showNoResult = false
-      if (recipes.length === 0) {
+      if (expos.length === 0) {
         vm.notFound = true
       }
       /* Top of page in a new search */

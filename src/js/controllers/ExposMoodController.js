@@ -9,6 +9,8 @@ function ExposMoodController($scope, $rootScope, $routeParams, ApiService) {
          	console.log ($scope.expos)
          	console.log($scope.moodCategory)
          })
-
+    $scope.doTheBack = function() {
+        window.history.back();
+    }
 }
 module.exports = ExposMoodController

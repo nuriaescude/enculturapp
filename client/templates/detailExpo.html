@@ -1,4 +1,4 @@
-<div ng-include src="'templates/includes/navbarExpo.html'"></div>
+<div ng-include src="'templates/includes/navbarBack.html'"></div>
 <div class="single-page">
     <div class="panel" ng-controller="TabController">
         <div class="row">
@@ -32,7 +32,7 @@
                                 </li>
                             </ul>
                         </section>
-                        <p>{{ expo.description }}</p>
+                        <p class="newline">{{ expo.description }}</p>
                         <p><a target="_blank" ng-href="http://{{$expo.urlExternal}}" target="_blank">Visit the exhibition website</a></p>
                     </div>
                     <div ng-show="isSet(2)">
