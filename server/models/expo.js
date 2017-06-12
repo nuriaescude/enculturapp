@@ -10,12 +10,7 @@ const ExpoSchema = new mongoose.Schema({
   description: String,
   category: [String],
   urlExternal: String,
-  address: {
-  	street : String,
-		zipCode: String,
-		city   : String,
-		coord  : [Number],
-  },
+  address: String,
   imageCenter: String,
   center: String,
   urlMap: String,

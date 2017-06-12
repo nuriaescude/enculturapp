@@ -6,48 +6,53 @@
                 <h2>Add an exhibition</h2>
             </div>
             <div class="control-group">
-                <label class="control-label" for="center">Select the place:</label>
-                <input ng-model="center" name="center" type="text" class="form-control" id="center" placeholder="Center Expo name">
+                <label class="control-label" for="selectCenter">Place:</label>
+                
+                <select id="selectCenter" name="selectCenter" ng-model="selectedCenter" class="form-control">
+                    <option ng-repeat="center in centers | limitTo:89" ng-value="{{center.name}}">{{center.center}}
+                    </option>
+                </select>
+                <!-- <input ng-model="center" name="center" type="text" class="form-control" id="center" placeholder="Select the center"> -->
                 <p class="help-block">For example: Museu del Disseny</p>
             </div>
             <div class="control-group">
                 <label class="control-label" for="nameExpo">Name of the exhibition:</label>
-                <input ng-model="name" name="nameExpo" type="text" class="form-control" id="nameExpo" placeholder="Expo Title">
+                <input ng-model="name" name="nameExpo" type="text" class="form-control" id="nameExpo" placeholder="Enter the name of the exhibition">
                 <p class="help-block">For example: David Bowie is</p>
             </div>
             <div class="control-group" role="group">
-                <label class="control-label" for="categoryExpo">Which mood?</label>
+                <label class="control-label" for="categoryExpo">Choose the mood for the exhibition:</label>
                 <div class="checkbox" ng-repeat="category in categories">
                     <label>
                         <input type="checkbox" name="selectedCategories[]" value="{{category.name}}" ng-model="category.selected"> {{category.name}}
                     </label>
                 </div>
                 <p class="help-block">Select one or more than one mood.</p>
-                <input readonly="true" name="categoryExpo" type="text" class="hidden" id="categoryExpo" placeholder="Enter mood" ng-model="category">
+                <input readonly="true" name="categoryExpo" type="text" class="hidden" id="categoryExpo" ng-model="category">
             </div>
             <div class="control-group">
-                <label class="control-label" for="descriptionExpo">A Description of Exhibiton:</label>
-                <textarea rows="5" ng-model="description" name="descriptionExpo" type="text" class="form-control" id="descriptionExpo" placeholder="Expo Description..."></textarea>
+                <label class="control-label" for="descriptionExpo">Description of Exhibiton:</label>
+                <textarea rows="5" ng-model="description" name="descriptionExpo" type="text" class="form-control" id="descriptionExpo" placeholder="Enter a description for the exhibition"></textarea>
                 <p class="help-block">Make sure to use line break wherever you want.</p>
             </div>
             <div class="control-group">
-                <label class="control-label" for="imageExpo">Image of Exhibiton:</label>
-                <input ng-model="image" name="imageExpo" type="string" class="form-control" id="imageExpo" placeholder="Insert the Url Image Expo...">
+                <label class="control-label" for="imageExpo">Representative image of the exhibiton:</label>
+                <input ng-model="image" name="imageExpo" type="string" class="form-control" id="imageExpo" placeholder="Insert the image's URL of the exhibition">
                 <p class="help-block">For example: https://media.timeout.com/images/100571667/1372/772/image.jpg</p>
             </div>
             <div class="control-group">
-                <label class="control-label" for="urlExternal">Link of the exhibition:</label>
-                <input ng-model="urlExternal" name="urlExternal" type="string" class="form-control" id="urlExternal" placeholder="Insert the Url of the exhibition...">
+                <label class="control-label" for="urlExternal">Website of the exhibition:</label>
+                <input ng-model="urlExternal" name="urlExternal" type="string" class="form-control" id="urlExternal" placeholder="Insert the URL of the exhibition">
                 <p class="help-block">For example: http://bjorkdigital.cccb.org/ca/</p>
             </div>
             <div class="control-group">
-                <label class="control-label" for="openingToday">When DAY?</label>
-                <input ng-model="openingToday" name="openingToday" type="text" class="form-control" id="openingToday" placeholder="Enter opening hours">
+                <label class="control-label" for="openingToday">Open today:</label>
+                <input ng-model="openingToday" name="openingToday" type="text" class="form-control" id="openingToday" placeholder="Enter opening hours of a day">
                 <p class="help-block">For example: 10am to 20pm.</p>
             </div>
             <div class="control-group">
                 <label class="control-label" for="openingTimes">Opening times:</label>
-                <textarea rows="5" ng-model="openingTimes" name="openingTimes" type="text" class="form-control" id="openingTimes" placeholder="Enter the opening hours of the center"></textarea>
+                <textarea rows="3" ng-model="openingTimes" name="openingTimes" type="text" class="form-control" id="openingTimes" placeholder="Enter the opening hours of the center"></textarea>
                 <p class="help-block">Make sure to use line break wherever you want.</p>
             </div>
             <div class="control-group">
@@ -56,13 +61,14 @@
                 <p class="help-block">For example: 4,50€ or free entry</p>
             </div>
             <div class="control-group">
-                <label class="control-label" for="imageCenter">Image of the Center:</label>
-                <input ng-model="imageCenter" name="imageCenter" type="string" class="form-control" id="imageCenter" placeholder="Insert the image of the center">
+                <label class="control-label" for="imageCenter">Image of the center:</label>
+                <input ng-model="imageCenter" name="imageCenter" type="string" class="form-control" id="imageCenter" placeholder="Insert the image's URL of the center">
                 <p class="help-block">For example: https://media.timeout.com/images/100571667/1372/772/image.jpg</p>
             </div>
         </fieldset>
-    </form>
-    <div class="">
-        <button ng-click="selectCategory();addExpo()" type="submit" class="btn btn-lg btn-primary btn-block btn-login pull-right">ADD EXPO</button>
+        <div class="">
+        <button ng-click="selectCategory();addExpo()" type="submit" class="btn btn-lg btn-block btn-login">ADD EXPO</button>
     </div>
+    </form>
+    
 </div>

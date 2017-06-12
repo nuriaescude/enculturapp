@@ -17,11 +17,16 @@ function DataService ($http) {
 		return $http.post('/api/expos', data)
 			.then( response => response.data )
 	}
+	function getCenters(){
+		return $http.get('/api/expos')
+		.then(response => response.data)
+	}
 
 	function removeExpo( id ) {
 		return $http.delete(`/api/expo/${id}`)
 			.then( response => response.data )
 	}
+
 	function searchExpos (query) {
       return $http.get(`/api/recipes/search?q=${query}`)
                 .then(({data}) => {
@@ -34,6 +39,7 @@ function DataService ($http) {
     }
 
 
-	return { getAllExpos, getExposByMood, getDetailsExpo, addExpo, removeExpo, searchExpos }
+
+	return { getAllExpos, getExposByMood, getDetailsExpo, addExpo, getCenters ,removeExpo, searchExpos }
 }
 module.exports = DataService

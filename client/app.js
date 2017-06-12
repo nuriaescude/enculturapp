@@ -34620,13 +34620,14 @@ const AddController = require('./controllers/AddController');
 const ExpoDetailsController = require('./controllers/ExpoDetailsController');
 const ExposMoodController = require('./controllers/ExposMoodController');
 const SearchExposController = require('./controllers/SearchExposController');
+const UserProfileController = require('./controllers/UserProfileController');
 
 const configRoutes = require('./config');
 const ApiService = require('./services/ApiService');
 
-angular.module('mainApp', ['ngRoute', 'ngFileUpload']).controller('TabController', TabController).controller('AddController', AddController).controller('ListExposController', ListExposController).controller('ExpoDetailsController', ExpoDetailsController).controller('ExposMoodController', ExposMoodController).controller('SearchExposController', SearchExposController).factory('ApiService', ApiService).config(configRoutes);
+angular.module('mainApp', ['ngRoute', 'ngFileUpload']).controller('TabController', TabController).controller('AddController', AddController).controller('ListExposController', ListExposController).controller('ExpoDetailsController', ExpoDetailsController).controller('ExposMoodController', ExposMoodController).controller('SearchExposController', SearchExposController).controller('UserProfileController', UserProfileController).factory('ApiService', ApiService).config(configRoutes);
 
-},{"./config":6,"./controllers/AddController":7,"./controllers/ExpoDetailsController":8,"./controllers/ExposMoodController":9,"./controllers/ListExposController":10,"./controllers/SearchExposController":11,"./controllers/TabController":12,"./services/ApiService":13,"angular":4,"angular-route":2}],6:[function(require,module,exports){
+},{"./config":6,"./controllers/AddController":7,"./controllers/ExpoDetailsController":8,"./controllers/ExposMoodController":9,"./controllers/ListExposController":10,"./controllers/SearchExposController":11,"./controllers/TabController":12,"./controllers/UserProfileController":13,"./services/ApiService":14,"angular":4,"angular-route":2}],6:[function(require,module,exports){
 function configRoutes($routeProvider) {
   $routeProvider.when('/admin', {
     templateUrl: '/templates/admin.html',
@@ -34649,7 +34650,8 @@ function configRoutes($routeProvider) {
     templateUrl: '/templates/listExpos.html',
     controller: 'ListExposController'
   }).when('/userProfile', {
-    templateUrl: '/templates/userProfile.html'
+    templateUrl: '/templates/userProfile.html',
+    controller: 'UserProfileController'
   }).when('/search/:query', {
     templateUrl: '/templates/searchExpo.html',
     controller: 'SearchExposController',
@@ -34681,12 +34683,15 @@ function AddController($scope, $rootScope, ApiService) {
         });
     }, true);
 
+    ApiService.getCenters().then(response => $scope.centers = response, console.log($scope.centers));
+
     $scope.addExpo = function () {
 
-        const { name, center, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openingToday, openingTimes } = $scope;
+        const { name, center, address, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openingToday, openingTimes } = $scope;
 
-        ApiService.addExpo({ name, center, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openingToday, openingTimes }).then(console.log);
+        ApiService.addExpo({ name, center, address, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openingToday, openingTimes }).then(console.log);
     };
+
     $scope.doTheBack = function () {
         window.history.back();
     };
@@ -34752,6 +34757,7 @@ module.exports = MainController;
 function SearchExpoController($scope, $rootScope, $routeParams, ApiService) {
 
   $rootScope.section = "search";
+  $scope.title = "Search";
   let { query } = $routeParams;
   $rootScope.queryExpo = query;
   let vm = this;
@@ -34787,6 +34793,24 @@ function TabController($scope) {
 module.exports = TabController;
 
 },{}],13:[function(require,module,exports){
+function UserProfileController($scope, $rootScope, $routeParams, ApiService) {
+    $rootScope.section = "";
+    $scope.title = "User Profile";
+    const id = $routeParams.id;
+
+    ApiService.getDetailsExpo(id).then(expo => {
+        $scope.expo = expo;
+        $scope.title = expo.name;
+        console.log(expo);
+        $scope.backPath = '/#!/listExpos/' + expo.category[0];
+    });
+    $scope.doTheBack = function () {
+        window.history.back();
+    };
+}
+module.exports = UserProfileController;
+
+},{}],14:[function(require,module,exports){
 function DataService($http) {
 
 	function getAllExpos() {
@@ -34802,10 +34826,14 @@ function DataService($http) {
 	function addExpo(data) {
 		return $http.post('/api/expos', data).then(response => response.data);
 	}
+	function getCenters() {
+		return $http.get('/api/expos').then(response => response.data);
+	}
 
 	function removeExpo(id) {
 		return $http.delete(`/api/expo/${id}`).then(response => response.data);
 	}
+
 	function searchExpos(query) {
 		return $http.get(`/api/recipes/search?q=${query}`).then(({ data }) => {
 			data = data.map(elem => {
@@ -34816,7 +34844,7 @@ function DataService($http) {
 		});
 	}
 
-	return { getAllExpos, getExposByMood, getDetailsExpo, addExpo, removeExpo, searchExpos };
+	return { getAllExpos, getExposByMood, getDetailsExpo, addExpo, getCenters, removeExpo, searchExpos };
 }
 module.exports = DataService;
 

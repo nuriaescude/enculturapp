@@ -38,13 +38,20 @@ function AddController($scope, $rootScope, ApiService) {
         });
     }, true);
 
+    
+
+    ApiService.getCenters()
+    .then(response => $scope.centers = response, console.log($scope.centers) )
+
+
     $scope.addExpo = function() {
 
-        const { name, center, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openingToday, openingTimes } = $scope
+        const { name, center, address, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openingToday, openingTimes } = $scope
 
-        ApiService.addExpo({ name, center, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openingToday, openingTimes })
+        ApiService.addExpo({ name, center, address, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openingToday, openingTimes })
             .then(console.log)
     }
+
     $scope.doTheBack = function() {
         window.history.back();
     }

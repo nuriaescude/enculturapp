@@ -2,10 +2,11 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a ng-click="doTheBack()" class="navbar-brand visible-xs">
-                <i class="fa fa-fw fa fa-arrow-left"/>{{ title }}
+                <i class="fa fa-fw fa fa-arrow-left" />{{ title }}
             </a>
-            <a href="#" class="navbar-brand hidden-xs">{{ title }}</a>
+            <a ng-click="doTheBack()" class="navbar-brand hidden-xs">
+                <i class="fa fa-fw fa fa-arrow-left" />{{ title }}
+            </a>
         </div>
-        
     </div>
 </div>

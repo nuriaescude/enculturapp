@@ -30,6 +30,7 @@ function configRoutes ($routeProvider) {
       })
       .when('/userProfile', {
         templateUrl: '/templates/userProfile.html',
+        controller: 'UserProfileController'
       })
       .when('/search/:query', {
       templateUrl: '/templates/searchExpo.html',

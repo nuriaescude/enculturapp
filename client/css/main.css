@@ -91,10 +91,11 @@ body {
     -webkit-flex-grow: 1;
     flex-grow: 1;
     text-align: center;
+    padding-top: 3px;
 }
 .navbar-nav.mobile-bar > li > a > span.menu-icon {
     display: block;
-    font-size: 1.8em;
+    font-size: 1.6em;
     color: white;
 }
 .navbar-more {
@@ -316,6 +317,7 @@ body {
     max-width: 500px;
     margin: 0 auto;
     font-weight: lighter;
+    padding-bottom: 30px;
 }
 
 .form-signin .form-signin-heading,

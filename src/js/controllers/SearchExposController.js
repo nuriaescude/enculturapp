@@ -1,6 +1,7 @@
 function SearchExpoController($scope, $rootScope, $routeParams, ApiService) {
 
     $rootScope.section = "search"
+    $scope.title = "Search"
     let {query} = $routeParams
     $rootScope.queryExpo = query
     let vm = this
