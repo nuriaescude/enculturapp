@@ -28,7 +28,7 @@ function DataService ($http) {
 	}
 
 	function searchExpos (query) {
-      return $http.get(`/api/recipes/search?q=${query}`)
+      return $http.get(`/api/expos/search?q=${query}`)
                 .then(({data}) => {
                   data = data.map(elem => {
             

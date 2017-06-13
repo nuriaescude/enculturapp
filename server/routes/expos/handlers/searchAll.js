@@ -1,6 +1,6 @@
 const Expo = require(__base + 'models/expo')
 
-module.exports = (req, res) => {
+function searchAll(req, res)  {
   const {q = ''} = req.query
 
   Expo
@@ -9,4 +9,6 @@ module.exports = (req, res) => {
     .then(expos => res.json(expos))
     .catch(err => res.status(500).json(err))
 }
+
+module.exports = searchAll
 

@@ -1,5 +1,5 @@
 function UserProfileController($scope, $rootScope, $routeParams, ApiService) {
-    $rootScope.section = ""
+    $rootScope.section = "profile"
     $scope.title = "User Profile"
     const id = $routeParams.id
 

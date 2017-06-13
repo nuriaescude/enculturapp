@@ -1,5 +1,17 @@
 function SearchExpoController($scope, $rootScope, $routeParams, ApiService) {
 
+    
+    // $rootScope.section = "search-results"
+    // const location = $routeParams.location
+    // if(center){
+    // ApiService.searchAll(center)
+    //   .then(expos => $scope.expos = expos)
+    // }
+    // if (undefined) {
+    //   ApiService.getAllExpos()
+    //   .then(expos => $scope.expos = expos)
+    // }
+
     $rootScope.section = "search"
     $scope.title = "Search"
     let {query} = $routeParams

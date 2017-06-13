@@ -7,8 +7,8 @@
             </div>
             <div class="control-group">
                 <label class="control-label" for="selectCenter">Place:</label>
-                
-                <select id="selectCenter" name="selectCenter" ng-model="selectedCenter" class="form-control">
+                <!-- ng-change="placeSelected()" -->
+                <select id="center" name="center" class="form-control">
                     <option ng-repeat="center in centers | limitTo:89" ng-value="{{center.name}}">{{center.center}}
                     </option>
                 </select>
@@ -67,8 +67,7 @@
             </div>
         </fieldset>
         <div class="">
-        <button ng-click="selectCategory();addExpo()" type="submit" class="btn btn-lg btn-block btn-login">ADD EXPO</button>
-    </div>
+            <button ng-click="selectCategory();addExpo()" type="submit" class="btn btn-lg btn-block btn-login">ADD EXPO</button>
+        </div>
     </form>
-    
 </div>

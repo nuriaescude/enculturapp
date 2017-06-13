@@ -34664,6 +34664,7 @@ module.exports = configRoutes;
 },{}],7:[function(require,module,exports){
 function AddController($scope, $rootScope, ApiService) {
 
+    console.log("Were in A");
     $rootScope.section = "add";
     $scope.title = "Admin";
 
@@ -34756,6 +34757,17 @@ module.exports = MainController;
 },{}],11:[function(require,module,exports){
 function SearchExpoController($scope, $rootScope, $routeParams, ApiService) {
 
+  // $rootScope.section = "search-results"
+  // const location = $routeParams.location
+  // if(center){
+  // ApiService.searchAll(center)
+  //   .then(expos => $scope.expos = expos)
+  // }
+  // if (undefined) {
+  //   ApiService.getAllExpos()
+  //   .then(expos => $scope.expos = expos)
+  // }
+
   $rootScope.section = "search";
   $scope.title = "Search";
   let { query } = $routeParams;
@@ -34794,7 +34806,7 @@ module.exports = TabController;
 
 },{}],13:[function(require,module,exports){
 function UserProfileController($scope, $rootScope, $routeParams, ApiService) {
-    $rootScope.section = "";
+    $rootScope.section = "profile";
     $scope.title = "User Profile";
     const id = $routeParams.id;
 
@@ -34835,7 +34847,7 @@ function DataService($http) {
 	}
 
 	function searchExpos(query) {
-		return $http.get(`/api/recipes/search?q=${query}`).then(({ data }) => {
+		return $http.get(`/api/expos/search?q=${query}`).then(({ data }) => {
 			data = data.map(elem => {
 
 				return elem;

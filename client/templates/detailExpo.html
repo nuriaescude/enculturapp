@@ -41,7 +41,7 @@
                         <ul class="list-group no-margin-bottom">
                             <li class="list-group-item list-details-center">
                                 {{ expo.center }}</li>
-                            <li class="list-group-item list-details-center"><i class="fa fa-location-arrow" aria-hidden="true"></i>Plaça de les Glòries</li>
+                            <li class="list-group-item list-details-center"><i class="fa fa-location-arrow" aria-hidden="true"></i><a ng-href="http://www.google.es/maps/place/{{$expo.address}}" target="_blank">{{ expo.address }}</a></li>
                             <li class="list-group-item list-details-center"><i class="fa fa-link" aria-hidden="true"></i><a ng-href="http://{{$expo.urlExternal}}" target="_blank">Museum website</a></li>
                             <li class="list-group-item list-details-center">
                                 <ul class="social-network social-circle">
@@ -52,15 +52,16 @@
                                 </ul>
                             </li>
                         </ul>
-                        <div class="list-expos">
+                        <div class="details-item">
                         <h2>Price</h2>
                             <p>{{expo.priceCenter}}</p>
-                            </div><div class="list-expos">
+                            </div>
+                        <div class="details-item">
                         <h2>Opening times</h2>
                             <p>{{expo.openingTimes}}</p>
                         </div>
                         <div>
-                            <div class="list-expos">
+                            <div class="details-item">
                                 <h2>Other current exhibitions</h2>
                                 <section class="expos-cards-other">
                                     <div class="thumbnail item-expo-box">
