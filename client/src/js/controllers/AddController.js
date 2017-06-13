@@ -1,6 +1,6 @@
 function AddController($scope, $rootScope, ApiService) {
 
-    console.log("Were in A")
+    console.log("Were in Addcontroller")
     $rootScope.section = "add"
     $scope.title = "Admin"
 

@@ -34664,7 +34664,7 @@ module.exports = configRoutes;
 },{}],7:[function(require,module,exports){
 function AddController($scope, $rootScope, ApiService) {
 
-    console.log("Were in A");
+    console.log("Were in Addcontroller");
     $rootScope.section = "add";
     $scope.title = "Admin";
 

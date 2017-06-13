@@ -9,7 +9,8 @@
                 <label class="control-label" for="selectCenter">Place:</label>
                 <!-- ng-change="placeSelected()" -->
                 <select id="center" name="center" class="form-control">
-                    <option ng-repeat="center in centers | limitTo:89" ng-value="{{center.name}}">{{center.center}}
+                    <option selected value="">Select a place</option>
+                    <option ng-repeat="center in centers | limitTo:98" ng-value="{{center.name}}">{{center.center}}
                     </option>
                 </select>
                 <!-- <input ng-model="center" name="center" type="text" class="form-control" id="center" placeholder="Select the center"> -->
