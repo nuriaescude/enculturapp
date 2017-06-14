@@ -1,6 +1,6 @@
 const Expo = require(__base + 'models/Expo')
 
-module.exports = (req, res) => {
+function getDetailsExpo(req, res) {
   const {id} = req.params
 
   Expo
@@ -12,6 +12,8 @@ module.exports = (req, res) => {
 	});
 }
 
-function handleError(error){
-	console.log(error)
-}
+module.exports = getDetailsExpo
+
+// function handleError(error){
+// 	console.log(error)
+// }
