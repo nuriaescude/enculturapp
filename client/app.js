@@ -34619,15 +34619,14 @@ const ListExposController = require('./controllers/ListExposController');
 const AdminController = require('./controllers/AdminController');
 const ExpoDetailsController = require('./controllers/ExpoDetailsController');
 const ExposMoodController = require('./controllers/ExposMoodController');
-const SearchExposController = require('./controllers/SearchExposController');
 const UserProfileController = require('./controllers/UserProfileController');
 
 const configRoutes = require('./config');
 const ApiService = require('./services/ApiService');
 
-angular.module('mainApp', ['ngRoute', 'ngFileUpload']).controller('TabController', TabController).controller('AdminController', AdminController).controller('ListExposController', ListExposController).controller('ExpoDetailsController', ExpoDetailsController).controller('ExposMoodController', ExposMoodController).controller('SearchExposController', SearchExposController).controller('UserProfileController', UserProfileController).factory('ApiService', ApiService).config(configRoutes);
+angular.module('mainApp', ['ngRoute', 'ngFileUpload']).controller('TabController', TabController).controller('AdminController', AdminController).controller('ListExposController', ListExposController).controller('ExpoDetailsController', ExpoDetailsController).controller('ExposMoodController', ExposMoodController).controller('UserProfileController', UserProfileController).factory('ApiService', ApiService).config(configRoutes);
 
-},{"./config":6,"./controllers/AdminController":7,"./controllers/ExpoDetailsController":8,"./controllers/ExposMoodController":9,"./controllers/ListExposController":10,"./controllers/SearchExposController":11,"./controllers/TabController":12,"./controllers/UserProfileController":13,"./services/ApiService":14,"angular":4,"angular-route":2}],6:[function(require,module,exports){
+},{"./config":6,"./controllers/AdminController":7,"./controllers/ExpoDetailsController":8,"./controllers/ExposMoodController":9,"./controllers/ListExposController":10,"./controllers/TabController":11,"./controllers/UserProfileController":12,"./services/ApiService":13,"angular":4,"angular-route":2}],6:[function(require,module,exports){
 function configRoutes($routeProvider) {
   $routeProvider.when('/admin', {
     templateUrl: '/templates/admin.html',
@@ -34756,43 +34755,6 @@ function MainController($scope, $rootScope, $routeParams, ApiService) {
 module.exports = MainController;
 
 },{}],11:[function(require,module,exports){
-function SearchExpoController($scope, $rootScope, $routeParams, ApiService) {
-
-    // $rootScope.section = "search-results"
-    // const location = $routeParams.location
-    // if(center){
-    // ApiService.searchAll(center)
-    //   .then(expos => $scope.expos = expos)
-    // }
-    // if (undefined) {
-    //   ApiService.getAllExpos()
-    //   .then(expos => $scope.expos = expos)
-    // }
-
-    // $rootScope.section = "search"
-    // $scope.title = "Search"
-    // let {query} = $routeParams
-    // $rootScope.queryExpo = query
-    // let vm = this
-    // vm.showNoResult = true
-
-    // $q.all([
-    //   ApiService.searchExpos(query)
-    // ]).then(data => {
-    //   let expos = [...data[0], ...data[1], ...data[2]]
-    //   vm.showNoResult = false
-    //   if (expos.length === 0) {
-    //     vm.notFound = true
-    //   }
-    //   /* Top of page in a new search */
-    //   $location.hash('top')
-    //   $anchorScroll()
-    //   vm.aExpos = expos
-    // })
-}
-module.exports = SearchExpoController;
-
-},{}],12:[function(require,module,exports){
 function TabController($scope) {
   $scope.tab = 1;
 
@@ -34807,7 +34769,7 @@ function TabController($scope) {
 
 module.exports = TabController;
 
-},{}],13:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 function UserProfileController($scope, $rootScope, $routeParams, ApiService) {
     $rootScope.section = "profile";
     $scope.title = "User Profile";
@@ -34825,7 +34787,7 @@ function UserProfileController($scope, $rootScope, $routeParams, ApiService) {
 }
 module.exports = UserProfileController;
 
-},{}],14:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 function DataService($http) {
 
 	function getAllExpos() {
@@ -34852,17 +34814,18 @@ function DataService($http) {
 		return $http.delete(`/api/expo/${id}`).then(response => response.data);
 	}
 
-	function searchExpos(query) {
-		return $http.get(`/api/expos/search`).then(({ data }) => {
-			data = data.map(elem => {
+	// function searchExpos (query) {
+	//      return $http.get(`/api/expos/search`)
+	//                .then(({data}) => {
+	//                  data = data.map(elem => {
 
-				return elem;
-			});
-			return data;
-		});
-	}
+	//                    return elem
+	//                  })
+	//                  return data
+	//                })
+	//    }
 
-	return { getAllExpos, getExposByMood, getDetailsExpo, addExpo, getCenters, removeExpo, searchExpos };
+	return { getAllExpos, getExposByMood, getDetailsExpo, addExpo, getCenters, removeExpo };
 }
 module.exports = DataService;
 

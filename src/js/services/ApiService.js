@@ -32,18 +32,18 @@ function DataService ($http) {
 			.then( response => response.data )
 	}
 
-	function searchExpos (query) {
-      return $http.get(`/api/expos/search`)
-                .then(({data}) => {
-                  data = data.map(elem => {
+	// function searchExpos (query) {
+ //      return $http.get(`/api/expos/search`)
+ //                .then(({data}) => {
+ //                  data = data.map(elem => {
             
-                    return elem
-                  })
-                  return data
-                })
-    }
+ //                    return elem
+ //                  })
+ //                  return data
+ //                })
+ //    }
 
-	return { getAllExpos, getExposByMood, getDetailsExpo, addExpo, getCenters, removeExpo, searchExpos }
+	return { getAllExpos, getExposByMood, getDetailsExpo, addExpo, getCenters, removeExpo }
 }
 module.exports = DataService
 
