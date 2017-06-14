@@ -10,7 +10,7 @@
                 <!-- ng-change="placeSelected()" -->
                 <select id="center" name="center" class="form-control">
                     <option selected value="">Select a place</option>
-                    <option ng-repeat="center in centers | limitTo:98" ng-value="{{center.name}}">{{center.center}}
+                    <option ng-repeat="center in centers | limitTo:98" ng-value="center._id">{{center.name}}
                     </option>
                 </select>
                 <!-- <input ng-model="center" name="center" type="text" class="form-control" id="center" placeholder="Select the center"> -->
@@ -18,57 +18,52 @@
             </div>
             <div class="control-group">
                 <label class="control-label" for="nameExpo">Name of the exhibition:</label>
-                <input ng-model="name" name="nameExpo" type="text" class="form-control" id="nameExpo" placeholder="Enter the name of the exhibition">
+                <input ng-model="expoForm.name" name="nameExpo" type="text" class="form-control" id="nameExpo" placeholder="Enter the name of the exhibition">
                 <p class="help-block">For example: David Bowie is</p>
             </div>
             <div class="control-group" role="group">
                 <label class="control-label" for="categoryExpo">Choose the mood for the exhibition:</label>
                 <div class="checkbox" ng-repeat="category in categories">
                     <label>
-                        <input type="checkbox" name="selectedCategories[]" value="{{category.name}}" ng-model="category.selected"> {{category.name}}
+                        <input type="checkbox" name="selectedCategories[]" ng-model="expoForm.categories[category.name]"> {{category.name}}
                     </label>
                 </div>
                 <p class="help-block">Select one or more than one mood.</p>
-                <input readonly="true" name="categoryExpo" type="text" class="hidden" id="categoryExpo" ng-model="category">
+                <input readonly="true" name="categoryExpo" type="text" class="hidden" id="categoryExpo" ng-model="expoForm.category">
             </div>
             <div class="control-group">
                 <label class="control-label" for="descriptionExpo">Description of Exhibiton:</label>
-                <textarea rows="5" ng-model="description" name="descriptionExpo" type="text" class="form-control" id="descriptionExpo" placeholder="Enter a description for the exhibition"></textarea>
+                <textarea rows="5" ng-model="expoForm.description" name="descriptionExpo" type="text" class="form-control" id="descriptionExpo" placeholder="Enter a description for the exhibition"></textarea>
                 <p class="help-block">Make sure to use line break wherever you want.</p>
             </div>
             <div class="control-group">
                 <label class="control-label" for="imageExpo">Representative image of the exhibiton:</label>
-                <input ng-model="image" name="imageExpo" type="string" class="form-control" id="imageExpo" placeholder="Insert the image's URL of the exhibition">
+                <input ng-model="expoForm.image" name="image" type="string" class="form-control" id="image" placeholder="Insert the image's URL of the exhibition">
                 <p class="help-block">For example: https://media.timeout.com/images/100571667/1372/772/image.jpg</p>
             </div>
             <div class="control-group">
-                <label class="control-label" for="urlExternal">Website of the exhibition:</label>
-                <input ng-model="urlExternal" name="urlExternal" type="string" class="form-control" id="urlExternal" placeholder="Insert the URL of the exhibition">
+                <label class="control-label" for="url">Website of the exhibition:</label>
+                <input ng-model="expoForm.url" name="url" type="string" class="form-control" id="url" placeholder="Insert the URL of the exhibition">
                 <p class="help-block">For example: http://bjorkdigital.cccb.org/ca/</p>
             </div>
             <div class="control-group">
                 <label class="control-label" for="openingToday">Open today:</label>
-                <input ng-model="openingToday" name="openingToday" type="text" class="form-control" id="openingToday" placeholder="Enter opening hours of a day">
+                <input ng-model="expoForm.openingToday" name="openingToday" type="text" class="form-control" id="openingToday" placeholder="Enter opening hours of a day">
                 <p class="help-block">For example: 10am to 20pm.</p>
             </div>
             <div class="control-group">
                 <label class="control-label" for="openingTimes">Opening times:</label>
-                <textarea rows="3" ng-model="openingTimes" name="openingTimes" type="text" class="form-control" id="openingTimes" placeholder="Enter the opening hours of the center"></textarea>
+                <textarea rows="3" ng-model="expoForm.openingTimes" name="openingTimes" type="text" class="form-control" id="openingTimes" placeholder="Enter the opening hours of the center"></textarea>
                 <p class="help-block">Make sure to use line break wherever you want.</p>
             </div>
             <div class="control-group">
                 <label class="control-label" for="priceCenter">Price:</label>
-                <textarea rows="3" ng-model="priceCenter" name="priceCenter" type="text" class="form-control" id="priceCenter" placeholder="Insert the price of the entrance"></textarea>
+                <textarea rows="3" ng-model="expoForm.price" name="price" type="text" class="form-control" id="priceCenter" placeholder="Insert the price of the entrance"></textarea>
                 <p class="help-block">For example: 4,50€ or free entry</p>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="imageCenter">Image of the center:</label>
-                <input ng-model="imageCenter" name="imageCenter" type="string" class="form-control" id="imageCenter" placeholder="Insert the image's URL of the center">
-                <p class="help-block">For example: https://media.timeout.com/images/100571667/1372/772/image.jpg</p>
             </div>
         </fieldset>
         <div class="">
-            <button ng-click="selectCategory();addExpo()" type="submit" class="btn btn-lg btn-block btn-login">ADD EXPO</button>
+            <button ng-click="onExpoFormSubmitted()" type="submit" class="btn btn-lg btn-block btn-login">ADD EXPO</button>
         </div>
     </form>
 </div>

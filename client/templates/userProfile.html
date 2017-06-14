@@ -1,4 +1,4 @@
-<div ng-include src="'templates/includes/navbarBack.html'"></div>
+<div ng-include src="'templates/includes/navbarMain.html'"></div>
 <div class="single-page">
     <div class="panel" ng-controller="TabController">
         <div class="row">
@@ -15,22 +15,13 @@
             <div class="col-md-8">
                 <div class="panel-body">
                     <div ng-show="isSet(1)">
-                        <p class="detail-expo text-center">Exhibition details</p>
                         <section>
                             <ul class="details">
-                                <li>
-                                    <div class="detail-item"><i class="fa fa-clock-o"></i>1h 30m</div>
-                                </li>
-                                <li>
-                                    <div class="detail-item"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
-                                </li>
-                                <li>
-                                    <div class="detail-item"><i class="fa fa-lock"></i></div>
-                                </li>
+                                
                             </ul>
                         </section>
-                        <p>{{ expos.description }}</p>
-                        <p><a target="_blank" href="http://ajuntament.barcelona.cat/museudeldisseny/es/exposicion/david-bowie">Visit the museum website</a></p>
+                        <p>Lorem ipsum</p>
+                        
                     </div>
                     <div ng-show="isSet(2)">
                         <div class="detail-expo-img" ng-style="{'background-image': 'url(' + expos.imageCenter + ')'}" ng-alt="{{ expos.center }}">
@@ -49,35 +40,8 @@
                                 </ul>
                             </li>
                         </ul>
-                        <div>
-                            <p>{{expos.priceCenter}}</p>
-                            <p>{{expos.priceCenter}}</p>
-                            <p>{{expos.openHoursWeek}}</p>
-                        </div>
-                        <div>
-                            <div class="list-expos">
-                                <h2>Other current exhibitions</h2>
-                                <section class="expos-cards-other">
-                                    <div class="thumbnail item-expo-box">
-                                        <div class="item-expo-img" ng-style="{'background-image': 'url(' + expos.imageCenter + ')'}" ng-alt="{{ expos.center }}">
-                                        </div>
-                                        <div class="caption">
-                                            <a href="/#!/detailExpo">
-                                                <p class="expo-name">Dressing the body. Silhouettes and fashion (1550-2015)</p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="thumbnail item-expo-box">
-                                        <div class="item-expo-img" ng-style="{'background-image': 'url(' + expos.imageCenter + ')'}" ng-alt="{{ expos.center }}">
-                                        </div>
-                                        <div class="caption">
-                                            <a href="/#!/detailExpo">
-                                                <p class="expo-name">From the World to the Museum. Product Design, Cultural Heritage</p>
-                                            </a>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>

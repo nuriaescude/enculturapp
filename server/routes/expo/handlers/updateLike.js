@@ -1,5 +1,4 @@
-const Expo = require(__base + 'models/expo')
-// const User = require(__base + 'models/User')
+const Expo = require(__base + 'models/Expo')
 
 module.exports = (req, res) => {
   const {id} = req.params

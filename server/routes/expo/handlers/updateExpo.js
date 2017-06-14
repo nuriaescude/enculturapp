@@ -1,4 +1,4 @@
-const Expo = require( __base + 'models/expo')
+const Expo = require( __base + 'models/Expo')
 
 function updateExpo (req,res) {
 	const { id } = req.params

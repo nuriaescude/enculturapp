@@ -2,12 +2,11 @@ function configRoutes ($routeProvider) {
     $routeProvider
       .when('/admin', {
         templateUrl: '/templates/admin.html',
-        controller: 'AddController',
-        controllerAs: 'vm'
+        controller: 'AdminController',
       })
       .when('/expo/:id', {
         templateUrl: '/templates/detailExpo.html',
-        controller: 'ExpoDetailsController',
+        controller: 'ExpoDetailsController'
       })
       .when('/tutorial', {
         templateUrl: '/templates/tutorial.html'
@@ -22,7 +21,8 @@ function configRoutes ($routeProvider) {
         templateUrl: '/templates/register.html'
       })
       .when('/setMood', {
-        templateUrl: '/templates/setMood.html'
+        templateUrl: '/templates/setMood.html',
+        controller: 'ExposMoodController'
       })
       .when('/listExpos/:mood', {
         templateUrl: '/templates/listExpos.html',
@@ -32,10 +32,9 @@ function configRoutes ($routeProvider) {
         templateUrl: '/templates/userProfile.html',
         controller: 'UserProfileController'
       })
-      .when('/search/:query', {
+      .when('/search', {
       templateUrl: '/templates/searchExpo.html',
-      controller: 'SearchExposController',
-      controllerAs: 'vm',
+      controller: 'SearchExposController'
     })
       .otherwise({ redirectTo: '/landing' });
   };

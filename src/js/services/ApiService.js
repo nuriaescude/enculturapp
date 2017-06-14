@@ -15,11 +15,16 @@ function DataService ($http) {
 
 	function addExpo( data ) {
 		return $http.post('/api/expos', data)
+			.catch(err => console.error('Error!', err))
 			.then( response => response.data )
 	}
 	function getCenters(){
-		return $http.get('/api/expos')
-		.then(response => response.data)
+		return $http.get('/api/museum')
+			.then(response => response.data)
+			.then(centers => centers.map( center => {
+				center.name = removeAccents(center.name)
+				return center
+			}))
 	}
 
 	function removeExpo( id ) {
@@ -28,7 +33,7 @@ function DataService ($http) {
 	}
 
 	function searchExpos (query) {
-      return $http.get(`/api/expos/search?q=${query}`)
+      return $http.get(`/api/expos/search`)
                 .then(({data}) => {
                   data = data.map(elem => {
             
@@ -38,8 +43,15 @@ function DataService ($http) {
                 })
     }
 
-
-
-	return { getAllExpos, getExposByMood, getDetailsExpo, addExpo, getCenters ,removeExpo, searchExpos }
+	return { getAllExpos, getExposByMood, getDetailsExpo, addExpo, getCenters, removeExpo, searchExpos }
 }
 module.exports = DataService
+
+function removeAccents(value) {
+    return value
+        .replace(/á/g, 'a')
+        .replace(/é/g, 'e')
+        .replace(/í/g, 'i')
+        .replace(/ó/g, 'o')
+        .replace(/ú/g, 'u');
+}

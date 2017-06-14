@@ -34616,7 +34616,7 @@ const angularRoute = require("angular-route");
 
 const TabController = require('./controllers/TabController');
 const ListExposController = require('./controllers/ListExposController');
-const AddController = require('./controllers/AddController');
+const AdminController = require('./controllers/AdminController');
 const ExpoDetailsController = require('./controllers/ExpoDetailsController');
 const ExposMoodController = require('./controllers/ExposMoodController');
 const SearchExposController = require('./controllers/SearchExposController');
@@ -34625,14 +34625,13 @@ const UserProfileController = require('./controllers/UserProfileController');
 const configRoutes = require('./config');
 const ApiService = require('./services/ApiService');
 
-angular.module('mainApp', ['ngRoute', 'ngFileUpload']).controller('TabController', TabController).controller('AddController', AddController).controller('ListExposController', ListExposController).controller('ExpoDetailsController', ExpoDetailsController).controller('ExposMoodController', ExposMoodController).controller('SearchExposController', SearchExposController).controller('UserProfileController', UserProfileController).factory('ApiService', ApiService).config(configRoutes);
+angular.module('mainApp', ['ngRoute', 'ngFileUpload']).controller('TabController', TabController).controller('AdminController', AdminController).controller('ListExposController', ListExposController).controller('ExpoDetailsController', ExpoDetailsController).controller('ExposMoodController', ExposMoodController).controller('SearchExposController', SearchExposController).controller('UserProfileController', UserProfileController).factory('ApiService', ApiService).config(configRoutes);
 
-},{"./config":6,"./controllers/AddController":7,"./controllers/ExpoDetailsController":8,"./controllers/ExposMoodController":9,"./controllers/ListExposController":10,"./controllers/SearchExposController":11,"./controllers/TabController":12,"./controllers/UserProfileController":13,"./services/ApiService":14,"angular":4,"angular-route":2}],6:[function(require,module,exports){
+},{"./config":6,"./controllers/AdminController":7,"./controllers/ExpoDetailsController":8,"./controllers/ExposMoodController":9,"./controllers/ListExposController":10,"./controllers/SearchExposController":11,"./controllers/TabController":12,"./controllers/UserProfileController":13,"./services/ApiService":14,"angular":4,"angular-route":2}],6:[function(require,module,exports){
 function configRoutes($routeProvider) {
   $routeProvider.when('/admin', {
     templateUrl: '/templates/admin.html',
-    controller: 'AddController',
-    controllerAs: 'vm'
+    controller: 'AdminController'
   }).when('/expo/:id', {
     templateUrl: '/templates/detailExpo.html',
     controller: 'ExpoDetailsController'
@@ -34645,17 +34644,17 @@ function configRoutes($routeProvider) {
   }).when('/register', {
     templateUrl: '/templates/register.html'
   }).when('/setMood', {
-    templateUrl: '/templates/setMood.html'
+    templateUrl: '/templates/setMood.html',
+    controller: 'ExposMoodController'
   }).when('/listExpos/:mood', {
     templateUrl: '/templates/listExpos.html',
     controller: 'ListExposController'
   }).when('/userProfile', {
     templateUrl: '/templates/userProfile.html',
     controller: 'UserProfileController'
-  }).when('/search/:query', {
+  }).when('/search', {
     templateUrl: '/templates/searchExpo.html',
-    controller: 'SearchExposController',
-    controllerAs: 'vm'
+    controller: 'SearchExposController'
   }).otherwise({ redirectTo: '/landing' });
 };
 
@@ -34686,17 +34685,18 @@ function AddController($scope, $rootScope, ApiService) {
 
     ApiService.getCenters().then(response => $scope.centers = response, console.log($scope.centers));
 
-    $scope.addExpo = function () {
-
-        const { name, center, address, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openingToday, openingTimes } = $scope;
-
-        ApiService.addExpo({ name, center, address, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openingToday, openingTimes }).then(console.log);
-    };
+    $scope.expoForm = {};
 
     $scope.doTheBack = function () {
         window.history.back();
     };
+
+    $scope.onExpoFormSubmitted = function () {
+        const formData = Object.assign($scope.expoForm, { categories: Object.keys($scope.expoForm.categories) });
+        ApiService.addExpo(formData);
+    };
 }
+
 module.exports = AddController;
 
 },{}],8:[function(require,module,exports){
@@ -34719,14 +34719,16 @@ module.exports = ExpoDetailsController;
 },{}],9:[function(require,module,exports){
 function ExposMoodController($scope, $rootScope, $routeParams, ApiService) {
     $rootScope.section = "";
+    $scope.title = "How do you feel?";
     const id = $routeParams.id;
     $scope.moodCategory = id;
 
-    ApiService.getByMood(id).then(expos => {
-        $scope.expos = expos;
-        console.log($scope.expos);
-        console.log($scope.moodCategory);
-    });
+    // ApiService.getByMood(id)
+    //     .then(expos => {
+    //      	$scope.expos = expos 
+    //      	console.log ($scope.expos)
+    //      	console.log($scope.moodCategory)
+    //      })
     $scope.doTheBack = function () {
         window.history.back();
     };
@@ -34735,9 +34737,8 @@ module.exports = ExposMoodController;
 
 },{}],10:[function(require,module,exports){
 function MainController($scope, $rootScope, $routeParams, ApiService) {
-
 	$rootScope.section = "home";
-
+	$scope.title = "How is your mood today?";
 	$scope.mood = $routeParams.mood.replace(/[\W]+/g, " ");
 	$scope.title = $scope.mood;
 	$scope.backPath = '/#!/setMood';
@@ -34757,35 +34758,37 @@ module.exports = MainController;
 },{}],11:[function(require,module,exports){
 function SearchExpoController($scope, $rootScope, $routeParams, ApiService) {
 
-  // $rootScope.section = "search-results"
-  // const location = $routeParams.location
-  // if(center){
-  // ApiService.searchAll(center)
-  //   .then(expos => $scope.expos = expos)
-  // }
-  // if (undefined) {
-  //   ApiService.getAllExpos()
-  //   .then(expos => $scope.expos = expos)
-  // }
+    // $rootScope.section = "search-results"
+    // const location = $routeParams.location
+    // if(center){
+    // ApiService.searchAll(center)
+    //   .then(expos => $scope.expos = expos)
+    // }
+    // if (undefined) {
+    //   ApiService.getAllExpos()
+    //   .then(expos => $scope.expos = expos)
+    // }
 
-  $rootScope.section = "search";
-  $scope.title = "Search";
-  let { query } = $routeParams;
-  $rootScope.queryExpo = query;
-  let vm = this;
-  vm.showNoResult = true;
+    // $rootScope.section = "search"
+    // $scope.title = "Search"
+    // let {query} = $routeParams
+    // $rootScope.queryExpo = query
+    // let vm = this
+    // vm.showNoResult = true
 
-  $q.all([ApiService.searchExpos(query)]).then(data => {
-    let expos = [...data[0], ...data[1], ...data[2]];
-    vm.showNoResult = false;
-    if (expos.length === 0) {
-      vm.notFound = true;
-    }
-    /* Top of page in a new search */
-    $location.hash('top');
-    $anchorScroll();
-    vm.aExpos = expos;
-  });
+    // $q.all([
+    //   ApiService.searchExpos(query)
+    // ]).then(data => {
+    //   let expos = [...data[0], ...data[1], ...data[2]]
+    //   vm.showNoResult = false
+    //   if (expos.length === 0) {
+    //     vm.notFound = true
+    //   }
+    //   /* Top of page in a new search */
+    //   $location.hash('top')
+    //   $anchorScroll()
+    //   vm.aExpos = expos
+    // })
 }
 module.exports = SearchExpoController;
 
@@ -34836,10 +34839,13 @@ function DataService($http) {
 	}
 
 	function addExpo(data) {
-		return $http.post('/api/expos', data).then(response => response.data);
+		return $http.post('/api/expos', data).catch(err => console.error('Error!', err)).then(response => response.data);
 	}
 	function getCenters() {
-		return $http.get('/api/expos').then(response => response.data);
+		return $http.get('/api/museum').then(response => response.data).then(centers => centers.map(center => {
+			center.name = removeAccents(center.name);
+			return center;
+		}));
 	}
 
 	function removeExpo(id) {
@@ -34847,7 +34853,7 @@ function DataService($http) {
 	}
 
 	function searchExpos(query) {
-		return $http.get(`/api/expos/search?q=${query}`).then(({ data }) => {
+		return $http.get(`/api/expos/search`).then(({ data }) => {
 			data = data.map(elem => {
 
 				return elem;
@@ -34859,5 +34865,9 @@ function DataService($http) {
 	return { getAllExpos, getExposByMood, getDetailsExpo, addExpo, getCenters, removeExpo, searchExpos };
 }
 module.exports = DataService;
+
+function removeAccents(value) {
+	return value.replace(/á/g, 'a').replace(/é/g, 'e').replace(/í/g, 'i').replace(/ó/g, 'o').replace(/ú/g, 'u');
+}
 
 },{}]},{},[5]);

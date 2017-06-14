@@ -1,4 +1,5 @@
-const Expo = require(__base + 'models/expo')
+const Expo = require(__base + 'models/Expo')
+
 
 function getByMood(req, res) {
     const { mood } = req.params
@@ -6,10 +7,11 @@ function getByMood(req, res) {
 
     Expo
         .find({ category: { "$in" : [req.params.mood] } })
-        .then(expos => res.json(expos))
-        .catch(err => {
-            throw err
-        })
+        .populate("center")
+        .exec(function (err, expos) {
+			if (err) return handleError(err);
+			res.json(expos)
+		});
 }
 
 module.exports = getByMood

@@ -1,8 +1,10 @@
-const Expo = require( __base + 'models/expo')
+const Expo = require( __base + 'models/Expo')
 
 function addExpo( req, res ) {
-	const { name, center, address, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openingToday, openingTimes } = req.body
-	const expo	= new Expo( { name, center, address, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openingToday, openingTimes } )
+	const expoModelData = Object.assign(req.body);
+	expoModelData.category = expoModelData.categories;
+	// { name, center, address, category, url, description, image, price, imageCenter, urlMap, infoCenter, openingToday, openingTimes } 
+	const expo = new Expo(expoModelData)
 	expo.save()
 		.then( () => res.status(200).json({ msg: 'expo inserted properly'}) )
 		.catch( () => res.status(500).json({ msg: 'error inserting expo'}) )

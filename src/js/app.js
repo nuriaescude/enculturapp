@@ -3,7 +3,7 @@ const angularRoute = require("angular-route");
 
 const TabController = require('./controllers/TabController')
 const ListExposController = require('./controllers/ListExposController')
-const AddController = require('./controllers/AddController')
+const AdminController = require('./controllers/AdminController')
 const ExpoDetailsController = require('./controllers/ExpoDetailsController')
 const ExposMoodController = require('./controllers/ExposMoodController')
 const SearchExposController = require('./controllers/SearchExposController')
@@ -15,7 +15,7 @@ const ApiService = require('./services/ApiService')
 
 angular.module('mainApp', [ 'ngRoute', 'ngFileUpload' ])
 	.controller('TabController', TabController)
-	.controller('AddController', AddController)
+	.controller('AdminController', AdminController)
 	.controller('ListExposController', ListExposController)
 	.controller('ExpoDetailsController', ExpoDetailsController)
 	.controller('ExposMoodController', ExposMoodController)

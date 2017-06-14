@@ -9,16 +9,15 @@ const ExpoSchema = new mongoose.Schema({
   image: String,
   description: String,
   category: [String],
-  urlExternal: String,
-  address: String,
-  imageCenter: String,
-  center: String,
-  urlMap: String,
-  infoCenter: String,
-  priceCenter: String,
-  openingTimes: String,
-  openingToday: String,
-  // likes: [{type: ObjectId, ref: 'User'}]
+  url: String,
+  center: {
+  	type: mongoose.Schema.ObjectId,
+  	ref: 'Museum'
+  },
+  price: {
+  	type: Number,
+  	default: 0
+  }
 }, { collection })
 
 module.exports = mongoose.model('Expo', ExpoSchema);

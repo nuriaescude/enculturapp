@@ -1,10 +1,17 @@
-const Expo = require(__base + 'models/expo')
+const Expo = require(__base + 'models/Expo')
 
 module.exports = (req, res) => {
   const {id} = req.params
 
   Expo
     .findById(id)
-    .then(expo => res.json(expo))
-    .catch(err => { throw err })
+    .populate("center")
+    .exec(function (err, expo) {
+		if (err) return handleError(err);
+		res.json(expo)
+	});
+}
+
+function handleError(error){
+	console.log(error)
 }

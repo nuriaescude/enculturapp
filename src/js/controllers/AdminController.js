@@ -38,24 +38,25 @@ function AddController($scope, $rootScope, ApiService) {
             return category.name
         });
     }, true);
-
     
 
-    ApiService.getCenters()
+    ApiService.getCenters() 
     .then(response => $scope.centers = response, console.log($scope.centers) )
 
 
-    $scope.addExpo = function() {
-
-        const { name, center, address, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openingToday, openingTimes } = $scope
-
-        ApiService.addExpo({ name, center, address, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openingToday, openingTimes })
-            .then(console.log)
+    $scope.expoForm = {
     }
 
     $scope.doTheBack = function() {
         window.history.back();
     }
 
+    $scope.onExpoFormSubmitted = function() {
+        const formData = Object.assign(
+            $scope.expoForm, {categories: Object.keys($scope.expoForm.categories)}
+        )
+        ApiService.addExpo(formData)
+    }
 }
+
 module.exports = AddController

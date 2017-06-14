@@ -1,7 +1,6 @@
 function MainController($scope, $rootScope, $routeParams, ApiService) {
-
 	$rootScope.section = "home"
-
+	$scope.title = "How is your mood today?"
 	$scope.mood = $routeParams.mood.replace(/[\W]+/g, " ")
 	$scope.title = $scope.mood
 	$scope.backPath = '/#!/setMood'
