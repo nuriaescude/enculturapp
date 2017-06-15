@@ -6,10 +6,12 @@ function getDetailsExpo(req, res) {
   Expo
     .findById(id)
     .populate("center")
-    .exec(function (err, expo) {
-		if (err) return handleError(err);
-		res.json(expo)
-	});
+ //    .exec(function (err, expo) {
+	// 	if (err) return handleError(err);
+	// 	res.json(expo)
+	// 	.catch (err);
+	// });
+	.then(expo => res.json(expo))
 }
 
 module.exports = getDetailsExpo

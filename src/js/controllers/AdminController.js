@@ -1,6 +1,6 @@
 function AddController($scope, $rootScope, ApiService) {
 
-    console.log("Were in Addcontroller")
+    console.log("Were in AdminController")
     $rootScope.section = "add"
     $scope.title = "Admin"
 
@@ -52,6 +52,8 @@ function AddController($scope, $rootScope, ApiService) {
     }
 
     $scope.onExpoFormSubmitted = function() {
+        console.log ( 'my data form is...' )
+        console.log ( $scope )
         const formData = Object.assign(
             $scope.expoForm, {categories: Object.keys($scope.expoForm.categories)}
         )

@@ -5,7 +5,7 @@ function getAll( req, res ) {
 
 	Expo.find()
 		.then( expos => res.json(expos) )
-
+		.catch (err);
 }
 
 module.exports = getAll

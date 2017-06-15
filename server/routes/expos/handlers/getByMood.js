@@ -12,6 +12,7 @@ function getByMood(req, res) {
 			if (err) return handleError(err);
 			res.json(expos)
 		});
+		// .then(expos => res.json(expo))
 }
 
 module.exports = getByMood

@@ -15,7 +15,7 @@ const ExpoSchema = new mongoose.Schema({
   	ref: 'Museum'
   },
   price: {
-  	type: Number,
+  	type: String,
   	default: 0
   }
 }, { collection })

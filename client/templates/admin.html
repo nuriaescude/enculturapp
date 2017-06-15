@@ -8,7 +8,7 @@
             <div class="control-group">
                 <label class="control-label" for="selectCenter">Place:</label>
                 <!-- ng-change="placeSelected()" -->
-                <select id="center" name="center" class="form-control">
+                <select ng-model="expoForm.center" id="center" name="center" class="form-control">
                     <option selected value="">Select a place</option>
                     <option ng-repeat="center in centers | limitTo:98" ng-value="center._id">{{center.name}}
                     </option>

@@ -2,7 +2,7 @@ const Expo = require( __base + 'models/expo')
 
 function updateExpo (req,res) {
 	const { id } = req.params
-	const { name, nameCenter, category, urlExternal, description, image, imageCenter, urlMap, infoCenter, priceCenter, openHoursDay, openHoursWeek } = req.body
+	const { name, category, url, description, image, price, openingToday, openingTimes } = req.body
 
 	const dataToUpdate = {}
 	if (name) dataToUpdate.name = name
