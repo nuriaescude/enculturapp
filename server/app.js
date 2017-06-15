@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 /* static folder */
-app.use( express.static(path.join(__dirname,'../client')))
+app.use( express.static(path.join(__dirname,'../client/dist')))
 
 app.use('/api/expos', routesExpos)
 app.use('/api/expo', routesExpo)

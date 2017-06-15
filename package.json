@@ -6,9 +6,8 @@
   "scripts": {
     "prestart": "npm install",
     "postinstall": "bower install",
-    "build": "browserify src/js/app.js > client/app.js",
-    "build:watch": "watchify src/js/app.js -d -o client/app.js -v",
-    "build:es2015:watch": "watchify src/js/app.js -t babelify -o client/app.js -v",
+    "build": "browserify client/src/js/app.js > client/dist/js/app.js",
+    "build:watch": "watchify -t babelify -t brfs client/src/js/app.js -d -o client/dist/js/app.js -v",
     "start": "node index",
     "dev": "nodemon index"
   },
@@ -32,7 +31,9 @@
   },
   "devDependencies": {
     "angular": "^1.6.4",
+    "angular-jwt": "^0.1.9",
     "babelify": "^7.3.0",
+    "brfs": "^1.4.3",
     "browserify": "^14.4.0",
     "cheerio": "^1.0.0-rc.1",
     "nodemon": "^1.11.0",

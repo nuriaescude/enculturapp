@@ -1,0 +1,127 @@
+<div ng-include src="'navbarBack.html'"></div>
+<div class="single-page">
+    <!-- <h1>Found results for <strong>discoverer</strong></h1>
+ -->
+    <div class="list-expos">
+        <section ng-repeat="expo in expos" class="expos-cards">
+            <div class="thumbnail item-expo-box">
+                <a ng-href="/#!/expo/{{ expo._id }}">
+                    <div class="item-expo-img" ng-style="{'background-image': 'url(' + expo.image + ')'}" ng-alt="{{ expo.name }}">
+                    </div>
+                    <div class="caption">
+                        <p class="expo-name">{{ expo.name }}</p>
+                        <p class="center-name">{{ expo.center.name }}</p>
+                        <p class="expo-val">Barcelona</p>
+                        <!-- <div class="expo-val">
+                            <p>{{expo.price}}</p>
+                        </div> -->
+                    </div>
+                </a>
+            </div>
+            <!-- <div class="thumbnail item-expo-box">
+                <div class="item-expo-img" style="background-image: url('http://www.cccb.org/rcs_gene/Ami_Vitale_National_Geographic_Magazine_-_copia.jpg');">
+                </div>
+                <div class="caption">
+                    <a href="/#!/detailExpo">
+                        <p class="expo-name">World Press Photo 2017</p>
+                        <p class="center-name">CCCB</p>
+                    </a>
+                    <div class="expo-val">
+                        <p><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star-o"></span><span class="pull-right"><i class="fa fa-clock-o"></i>1h 30m</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="thumbnail item-expo-box">
+                <div class="item-expo-img" style="background-image: url('http://museuciencies.cat/wp-content/uploads/Expo-Spinosaurus-08br-1024x512.jpg');">
+                </div>
+                <div class="caption">
+                    <a href="/#!/detailExpo">
+                        <p class="expo-name">Spinosaurus: el gegant perdut del Cretaci</p>
+                        <p class="center-name">Museu de Ciències Naturals de Barcelona</p>
+                    </a>
+                    <div class="expo-val">
+                        <p><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star-o"></span><span class="pull-right"><i class="fa fa-clock-o"></i>1h 30m</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="thumbnail item-expo-box">
+                <div class="item-expo-img" style="background-image: url('http://www.bcn.cat/museupicasso/imatges/exposicions/picasso-retrats-museu-picasso.jpg');">
+                </div>
+                <div class="caption">
+                    <a href="/#!/detailExpo">
+                        <p class="expo-name">Picasso. Retratos</p>
+                        <p>Museu Picasso</p>
+                    </a>
+                    <div class="expo-val">
+                        <p><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star-o"></span><span class="pull-right"><i class="fa fa-clock-o"></i>1h 30m</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="thumbnail item-expo-box">
+                <div class="item-expo-img" style="background-image: url('http://fishh.museuegipci.com//files/img/ori/tut-0.jpg');">
+                </div>
+                <div class="caption">
+                    <a href="/#!/detailExpo">
+                        <p class="expo-name">Tutankhamon, historia de un descubrimiento</p>
+                        <p class="center-name">Museu Egipci de Barcelona</p>
+                    </a>
+                    <div class="expo-val">
+                        <p><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star-o"></span><span class="pull-right"><i class="fa fa-clock-o"></i>1h 30m</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="thumbnail item-expo-box">
+                <div class="item-expo-img" style="background-image: url('http://fishh.museuegipci.com/files/img/extrasmall/expo.jpg');">
+                </div>
+                <div class="caption">
+                    <a href="/#!/detailExpo">
+                        <p class="expo-name">Animales Sagrados del antiguo Egipto</p>
+                        <p class="center-name">Museu Egipci de Barcelona</p>
+                    </a>
+                    <div class="expo-val">
+                        <p><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star-o"></span><span class="pull-right"><i class="fa fa-clock-o"></i>1h 30m</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="thumbnail item-expo-box">
+                <div class="item-expo-img" style="background-image: url('http://d1sic1i5ajbkus.cloudfront.net/var/mhc/storage/images/inici2/exposicions/exposicions_en_curs/templers/174921-9-cat-ES/templers_slider1920width.jpg');">
+                </div>
+                <div class="caption">
+                    <a href="/#!/detailExpo">
+                        <p class="expo-name">Templers. Guerra i religió a l’Europa de les Croades</p>
+                        <p class="center-name">Museu d'Història de Catalunya</p>
+                    </a>
+                    <div class="expo-val">
+                        <p><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star-o"></span><span class="pull-right"><i class="fa fa-clock-o"></i>1h 30m</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="thumbnail item-expo-box">
+                <div class="item-expo-img" style="background-image: url('https://caixaforum.es/documents/20924/0/FinestresAlMon_cartell_desktop_cast.jpg/72e6ba0d-58be-44e9-bda2-3b821d3dab2e?t=1490019562000');">
+                </div>
+                <div class="caption">
+                    <a href="/#!/detailExpo">
+                        <p class="expo-name">Ventanas al mundo</p>
+                        <p class="center-name">Caixaforum</p>
+                    </a>
+                    <div class="expo-val">
+                        <p><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star-o"></span><span class="pull-right"><i class="fa fa-clock-o"></i>1h 30m</span></p>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+        <!-- <a href="#" class="list-group-item">
+            <div class="media">
+                <span class="label label-primary pull-right"><i class="fa fa-clock-o"></i>1h 30m</span>
+                <div class="pull-left">
+                    <img class="media-object" src="http://placehold.it/100x70" alt="Image">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">David Bowie Is</h4>
+                    <p>Museu del Disseny</p>
+                    <p><span class="glyphicon glyphicon-star"></span</p>
+                </div>
+            </div>
+        </a> -->
+    </div>
+</div>

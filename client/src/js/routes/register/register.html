@@ -1,0 +1,26 @@
+<div class="cover">
+    <div id="register" class="col-md-12 text-center">
+        <h1>Welcome</h1>
+        <p>Create an account to discover the cultural offer nearest to you.</p>
+        <form class="form-register" accept-charset="UTF-8" role="form" ng-submit="register($event)">
+            <div class="input-group">
+                <span class="input-group-addon no-border-bottom"><i class="fa fa-user fa-fw"></i></span>
+            <input class="form-control" placeholder="Name" name="name" type="text" ng-model="name" required autofocus>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon no-border-bottom"><i class="fa fa-envelope fa-fw"></i></span>
+                <input class="form-control" placeholder="Email" name="username" type="text" ng-model="username" required>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa fa-lock fa-fw"></i></span>
+                <input class="form-control" placeholder="Password" name="password" type="password" ng-model="password" required>
+            </div>
+            <a href="/#!/setMood">
+                <button type="submit" class="btn btn-lg btn-primary btn-block btn-login">Register now</button>
+            </a>
+        </form>
+    </div>
+    <div class="new-account">
+        Already have an account? <a href="/#!/login">Sign in</a>
+    </div>
+</div>
