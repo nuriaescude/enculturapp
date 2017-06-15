@@ -1,4 +1,4 @@
-const Expo = require(__base + 'models/Expo')
+const Expo = require(__base + 'models/expo')
 
 function getDetailsExpo(req, res) {
   const {id} = req.params

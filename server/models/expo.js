@@ -20,4 +20,4 @@ const ExpoSchema = new mongoose.Schema({
   }
 }, { collection })
 
-module.exports = mongoose.model('Expo', ExpoSchema);
+module.exports = mongoose.model('expo', ExpoSchema);

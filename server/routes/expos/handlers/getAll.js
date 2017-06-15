@@ -1,4 +1,4 @@
-const Expo = require( __base + 'models/Expo')
+const Expo = require( __base + 'models/expo')
 const Museum = require( __base + 'models/Museum')
 
 function getAll( req, res ) {

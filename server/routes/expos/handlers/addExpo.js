@@ -1,4 +1,4 @@
-const Expo = require( __base + 'models/Expo')
+const Expo = require( __base + 'models/expo')
 
 function addExpo( req, res ) {
 	const expoModelData = Object.assign(req.body);
