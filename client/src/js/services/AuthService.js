@@ -1,4 +1,4 @@
-function AuthService($http, $rootScope, StorageService, jwtHelper) {
+function authService($http, $rootScope, StorageService, jwtHelper) {
 
 		function login (username, password) {
 	    return $http.post('/login', { username, password })
@@ -34,4 +34,4 @@ function AuthService($http, $rootScope, StorageService, jwtHelper) {
   	return { login, register, isLoggedIn, logout, setCredentials}
 	}
 
-module.exports = AuthService
+module.exports = authService

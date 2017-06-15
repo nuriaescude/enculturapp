@@ -1,13 +1,13 @@
-function LoginController($scope, $location, AuthService) {
+function LoginController($scope, $location, authService) {
 
 	$scope.login = function(event) {
 		event.preventDefault()
 		const { username, password } = $scope
 
-		AuthService.login(username, password)
+		authService.login(username, password)
 			.then(msg => {
 				console.log(msg)
-					// $location.path('/profile')
+					$location.path('/profile')
 			})
 			.catch(console.log)
 	}
