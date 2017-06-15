@@ -3,9 +3,7 @@ function ExposMoodController($scope, $rootScope, $routeParams, ApiService) {
     $scope.title = "How do you feel?"
     const id = $routeParams.id
     $scope.moodCategory = id
-
-
-
+  
     // ApiService.getByMood(id)
     //     .then(expos => {
     //      	$scope.expos = expos 
