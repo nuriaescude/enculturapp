@@ -32,16 +32,6 @@ function DataService ($http) {
 			.then( response => response.data )
 	}
 
-	// function searchExpos (query) {
- //      return $http.get(`/api/expos/search`)
- //                .then(({data}) => {
- //                  data = data.map(elem => {
-            
- //                    return elem
- //                  })
- //                  return data
- //                })
- //    }
 
 	return { getAllExpos, getExposByMood, getDetailsExpo, addExpo, getCenters, removeExpo }
 }
