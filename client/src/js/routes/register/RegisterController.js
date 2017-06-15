@@ -1,10 +1,10 @@
-function RegisterController($scope, AuthService) {
+function RegisterController($scope, authService) {
 
 		$scope.register = function(event) {
 			event.preventDefault()
 			const { username, password } = $scope
 
-			AuthService.register(username, password)
+			authService.register(username, password)
 				.then(console.log)
 				.catch(console.log)
 		}
