@@ -52,7 +52,7 @@ The server part has multiple **API endpoints** using data from a **MongoDb colle
 + `PUT` `/expo/:id` → update data of the exhibition
 + `DELETE` `/expo/:id` → delete exhibition
 
-`/api` -> Serves the internal data of the users and recipes.
+`/api` -> Serves the internal data of the exhibitions and museums.
 `/auth` -> Serves the authentication options, register and login.
 
 
