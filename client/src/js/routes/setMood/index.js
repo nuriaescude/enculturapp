@@ -5,7 +5,8 @@ function configRoutes($routeProvider) {
   $routeProvider
       .when('/setMood', {
         template: htmlSetMood,
-        controller: 'ExposMoodController'
+        controller: 'ExposMoodController',
+        secure: true
       })
       .otherwise({ redirectTo: '/landing' });
 }

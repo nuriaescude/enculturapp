@@ -5,7 +5,8 @@ function configRoutes($routeProvider) {
   $routeProvider
       .when('/expo/:id', {
         template: htmlDetailExpo,
-        controller: 'ExpoDetailsController'
+        controller: 'ExpoDetailsController',
+        secure: true
       })
       .otherwise({ redirectTo: '/landing' });
 }

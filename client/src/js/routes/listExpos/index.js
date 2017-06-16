@@ -5,7 +5,8 @@ function configRoutes($routeProvider) {
   $routeProvider
       .when('/listExpos/:mood', {
         template: htmlListExpos,
-        controller: 'ListExposController'
+        controller: 'ListExposController',
+        secure: true
       })
       .otherwise({ redirectTo: '/landing' });
 }

@@ -1,6 +1,7 @@
 function authService($http, $rootScope, StorageService, jwtHelper) {
 
 		function login (username, password) {
+			console.log("login from authservice")
 	    return $http.post('/login', { username, password })
 					.then(response => response.data)
 					.then(data => {

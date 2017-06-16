@@ -5,7 +5,8 @@ function configRoutes($routeProvider) {
   $routeProvider
       .when('/admin', {
         template: htmlAdmin,
-        controller: 'AdminController'
+        controller: 'AdminController',
+        secure: true
       })
       .otherwise({ redirectTo: '/landing' });
 }

@@ -11,6 +11,8 @@ function UserProfileController($scope, $rootScope, $routeParams, ApiService) {
             $scope.backPath = '/#!/listExpos/' +
                 expo.category[0]
         })
+        .catch(console.log)
+        // .catch (error => console.log(error))
     $scope.doTheBack = function() {
         window.history.back();
     }

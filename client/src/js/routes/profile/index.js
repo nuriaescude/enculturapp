@@ -5,7 +5,8 @@ function configRoutes($routeProvider) {
   $routeProvider
       .when('/userProfile', {
         template: htmlUserProfile,
-        controller: 'UserProfileController'
+        controller: 'UserProfileController',
+        secure: true
       })
       .otherwise({ redirectTo: '/landing' });
 }
