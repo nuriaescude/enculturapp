@@ -1,1 +1,0 @@
-console.error("Error: Cannot find module '/Users/Nuria/Desktop/skylab/enculturapp/src/js/app.js' from '/Users/Nuria/Desktop/skylab/enculturapp'");
